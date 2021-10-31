@@ -38,6 +38,7 @@ public class CharacterMovement : MonoBehaviour
 
         if (rb.velocity.magnitude < speed)
         {
+            rb.velocity = Vector3.zero;
             animator.SetBool("isWalking", false);
         }
         else if (rb.velocity.magnitude > speed)
