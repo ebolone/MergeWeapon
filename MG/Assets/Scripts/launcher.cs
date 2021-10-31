@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using TMPro;
 
 public class Launcher : MonoBehaviourPunCallbacks
 {
- 
-        // Start is called before the first frame update
-        void Start()
+    [SerializeField] TMP_InputField roomNameInputField;
+    [SerializeField] TMP_Text errorText;
+    [SerializeField] TMP_Text roomNameText;
+    void Start()
         {
             Debug.Log("connettendosi al master..");
             PhotonNetwork.ConnectUsingSettings();
@@ -25,6 +27,38 @@ public class Launcher : MonoBehaviourPunCallbacks
 
             Debug.Log("entrati nella lobby");
         }
+        public void CreateRoom()
+        {
+        if (string.IsNullOrEmpty(roomNameInputField.text))
+        {
+            return;
+        }
+        PhotonNetwork.CreateRoom(roomNameInputField.text);
+        MenuManager.Instance.OpenMenu("loading");
+        }
+    public override void OnJoinedRoom()
+    {
+        MenuManager.Instance.OpenMenu("room");
+        roomNameText.text = PhotonNetwork.CurrentRoom.Name;
 
-        // Update is called once per frame
+
+
     }
+    public override void OnCreateRoomFailed(short returnCode, string message)
+    {
+        errorText.text = "room creation failed" + message;
+        MenuManager.Instance.OpenMenu("error");
+
+       
+    }
+    public void LeaveRoom()
+    {
+        PhotonNetwork.LeaveRoom();
+        MenuManager.Instance.OpenMenu("loading");
+
+    }
+    public override void OnLeftRoom()
+    {
+        MenuManager.Instance.OpenMenu("principale");
+    }
+}
