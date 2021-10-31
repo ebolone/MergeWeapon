@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class CharacterMovement : MonoBehaviour
 {
+    public float speed;
+    private Rigidbody rb;
+    private Animator animator;
+
     private CharacterController controller;
     private Vector3 playerVelocity;
     private bool groundedPlayer;
@@ -13,33 +17,34 @@ public class CharacterMovement : MonoBehaviour
 
     private void Start()
     {
+        rb = gameObject.GetComponent<Rigidbody>();
         controller = gameObject.AddComponent<CharacterController>();
+        animator = gameObject.GetComponent<Animator>();
     }
 
     void Update()
     {
-        groundedPlayer = controller.isGrounded;
-        if (groundedPlayer && playerVelocity.y < 0)
+
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+
+        Vector3 movement = new Vector3(horizontal, 0, vertical);
+
+        if (movement != Vector3.zero)
         {
-            playerVelocity.y = 0f;
-        }
+            animator.SetBool("isWalking", true);
+            rb.AddForce(movement * speed / Time.deltaTime);
+        }        
 
-        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        controller.Move(move * Time.deltaTime * playerSpeed);
-
-        if (move != Vector3.zero)
+        if (rb.velocity.magnitude < speed)
         {
-            gameObject.transform.forward = move;
+            rb.velocity = Vector3.zero;
+            animator.SetBool("isWalking", false);
         }
-
-        // Changes the height position of the player..
-        if (Input.GetButtonDown("Jump") && groundedPlayer)
+        else if (rb.velocity.magnitude > speed)
         {
-            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+            rb.velocity = rb.velocity.normalized * speed;
         }
-
-        playerVelocity.y += gravityValue * Time.deltaTime;
-        controller.Move(playerVelocity * Time.deltaTime);
     }
 }
 
