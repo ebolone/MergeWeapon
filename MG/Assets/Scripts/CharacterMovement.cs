@@ -1,50 +1,39 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CharacterMovement : MonoBehaviour
 {
-    public float speed;
-    private Rigidbody rb;
-    private Animator animator;
-
     private CharacterController controller;
     private Vector3 playerVelocity;
-    private bool groundedPlayer;
     private float playerSpeed = 2.0f;
-    private float jumpHeight = 1.0f;
-    private float gravityValue = -9.81f;
+    private Animator animator;
+    private PlayerInput playerInput;
 
     private void Start()
     {
-        rb = gameObject.GetComponent<Rigidbody>();
         controller = gameObject.AddComponent<CharacterController>();
         animator = gameObject.GetComponent<Animator>();
+        playerInput = gameObject.GetComponent<PlayerInput>();
     }
 
     void Update()
-    {
+    { 
+        Vector3 move = Vector3.zero;
+        controller.Move(move * Time.deltaTime * playerSpeed);
 
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
-
-        Vector3 movement = new Vector3(horizontal, 0, vertical);
-
-        if (movement != Vector3.zero)
+        if (move != Vector3.zero)
         {
+            gameObject.transform.forward = move;
             animator.SetBool("isWalking", true);
-            rb.AddForce(movement * speed / Time.deltaTime);
-        }        
+        }
 
-        if (rb.velocity.magnitude < speed)
-        {
-            rb.velocity = Vector3.zero;
-            animator.SetBool("isWalking", false);
-        }
-        else if (rb.velocity.magnitude > speed)
-        {
-            rb.velocity = rb.velocity.normalized * speed;
-        }
+        //ON SCREEN JOYSTICK
+
+        Vector2 joystickInput = playerInput.actions["Move"].ReadValue<Vector2>();
+        Vector3 joystickMove = new Vector3 (joystickInput.x, 0, joystickInput.y);
+        move.y = 0;
+        controller.Move(joystickMove * Time.deltaTime * playerSpeed);
     }
 }
-
