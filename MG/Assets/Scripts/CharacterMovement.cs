@@ -20,7 +20,7 @@ public class CharacterMovement : MonoBehaviour
 
     void Update()
     { 
-        Vector3 move = Vector3.zero;
+        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         controller.Move(move * Time.deltaTime * playerSpeed);
 
         if (move != Vector3.zero)
@@ -33,7 +33,17 @@ public class CharacterMovement : MonoBehaviour
 
         Vector2 joystickInput = playerInput.actions["Move"].ReadValue<Vector2>();
         Vector3 joystickMove = new Vector3 (joystickInput.x, 0, joystickInput.y);
-        move.y = 0;
+        
         controller.Move(joystickMove * Time.deltaTime * playerSpeed);
+        
+        if (joystickMove != Vector3.zero)
+        {
+            gameObject.transform.forward = joystickMove;
+            animator.SetBool("isWalking", true);
+        }
+        else
+        {
+            animator.SetBool("isWalking", false);
+        }
     }
 }
