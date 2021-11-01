@@ -6,8 +6,8 @@ public class CameraPOV : MonoBehaviour
 {
 
     public Transform target;
-    private float zDistance = 3f;
-    private float yDistance = 7f;
+    public float zDistance;
+    public float yDistance;
     public Camera mainCamera;
 
 
