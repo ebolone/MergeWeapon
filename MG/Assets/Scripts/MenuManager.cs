@@ -36,7 +36,7 @@ public class MenuManager : MonoBehaviour
         {
             if(menus[i].menuName == nomeMenu)
             {
-                OpenMenu(menus[i]);
+                menus[i].Open();
             }
             else if (menus[i].aperto)
             {
