@@ -60,6 +60,10 @@ public class Launcher : MonoBehaviourPunCallbacks
         MenuManager.Instance.OpenMenu("room");
         roomNameText.text = PhotonNetwork.CurrentRoom.Name;
         Player[] players = PhotonNetwork.PlayerList;
+        foreach(Transform child in playerListContent)
+        {
+            Destroy(child.gameObject);
+        }
 
         for (int i = 0; i < players.Count(); i++)
         {
@@ -111,6 +115,9 @@ public class Launcher : MonoBehaviourPunCallbacks
         }
         for(int i = 0; i< roomList.Count; i++)
         {
+            if (roomList[i].RemovedFromList)
+                continue;
+           
             Instantiate(roomListItemPrefab, roomListContent).GetComponent<RoomListItem>().SetUp(roomList[i]);
         }
        
