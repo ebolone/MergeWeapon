@@ -20,7 +20,7 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        ///collision.gameObject.GetComponent<Enemy>().TakeDamage(bulletDamage);
-       /// Destroy(gameObject);
+        collision.gameObject.GetComponent<Enemy>().TakeDamage(bulletDamage);
+        Destroy(gameObject);
     }
 }

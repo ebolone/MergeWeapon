@@ -93,7 +93,6 @@ public class RifleScript : MonoBehaviour
         if (Physics.Raycast(ray, out hit))
         {
             targetPoint = hit.point;
-            hit.transform.gameObject.SendMessage("TakeDamage", damagePerBullet);
         }
         else
             targetPoint = ray.GetPoint(75);
