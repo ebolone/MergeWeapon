@@ -8,7 +8,6 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(float amountOfDamage)
     {
-        Debug.Log("HIT");
         hp -= amountOfDamage;
         if (hp <= 0)
             Die();
