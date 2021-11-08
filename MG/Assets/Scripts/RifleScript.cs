@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class RifleScript : MonoBehaviour
 {
@@ -32,8 +33,9 @@ public class RifleScript : MonoBehaviour
     //References
     public Transform attackPoint;
     public Camera fpsCam;
+    public PlayerInput playerInput;
 
-    //animation
+    //animation source
     public Animator animator;
 
     //debug
@@ -45,6 +47,11 @@ public class RifleScript : MonoBehaviour
         //fill the magazine
         bulletsLeft = magazineSize;
         readyToShoot = true;
+    }
+
+
+    private void Start()
+    {
     }
 
     // Update is called once per frame
@@ -62,12 +69,13 @@ public class RifleScript : MonoBehaviour
     private void GetInput()
     {
         //check if shooting
-        shooting = Input.GetKeyDown(KeyCode.Mouse0);
+        shooting = playerInput.actions["Shoot"].triggered;
 
         //shooting
         if (readyToShoot && shooting && !reloading && bulletsLeft > 0)
         {
             bulletsShot = 0;
+            animator.SetBool("isShooting", true);
             Shoot();
         }
         //reloading
@@ -102,12 +110,15 @@ public class RifleScript : MonoBehaviour
 
         //shoot the bullet
         GameObject currentBullet = Instantiate(bullet, attackPoint.position, Quaternion.identity);
+        currentBullet.SendMessage("setBulletDamage", damagePerBullet);
         currentBullet.GetComponent<Rigidbody>().AddForce(direction.normalized * shootForce,ForceMode.Impulse);
         Destroy(currentBullet, 6f);
 
         //flash
         if (muzzleFlash != null)
+        {
             muzzleFlash.Play();
+        }
 
             bulletsShot++;
         bulletsLeft--;
@@ -115,6 +126,7 @@ public class RifleScript : MonoBehaviour
         if (allowInvoke)
         {
             Invoke("ResetShot", timeBetweenShooting);
+
             allowInvoke = false;
         }
 

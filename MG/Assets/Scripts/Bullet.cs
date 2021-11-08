@@ -5,17 +5,11 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
 
-    public float bulletDamage;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private float bulletDamage;
 
-    // Update is called once per frame
-    void Update()
+    public void setBulletDamage(float val)
     {
-        
+        bulletDamage = val;
     }
 
     private void OnCollisionEnter(Collision collision)

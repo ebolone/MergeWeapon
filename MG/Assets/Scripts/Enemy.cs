@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
 
     public float hp;
-    public GameObject particle;
+    public GameObject destroyEffect;
 
     public void TakeDamage(float amountOfDamage)
     {
@@ -18,8 +16,8 @@ public class Enemy : MonoBehaviour
 
     public void Die()
     {
-        GameObject deathAnimation = Instantiate(particle, gameObject.transform);
-        Destroy(deathAnimation, 2f);
+        GameObject destroyAnimation = (GameObject)Instantiate(destroyEffect, transform.position, transform.rotation);
+        Destroy(destroyAnimation, 4f);
         Destroy(gameObject);
     }
 }
