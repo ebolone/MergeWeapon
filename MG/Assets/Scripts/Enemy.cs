@@ -3,13 +3,23 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
 
-    public float hp;
+    public float maxHp;
+    private float currentHp;
+    public HealthBar healthBar;
     public GameObject destroyEffect;
+
+
+    private void Start()
+    {
+        currentHp = maxHp;
+        healthBar.setMaxHealth(maxHp);
+    }
 
     public void TakeDamage(float amountOfDamage)
     {
-        hp -= amountOfDamage;
-        if (hp <= 0)
+        currentHp -= amountOfDamage;
+        healthBar.setHealth(currentHp);
+        if (currentHp <= 0)
             Die();
     }
 
