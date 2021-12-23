@@ -341,6 +341,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cubo (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7055747529640823682, guid: 2851cab58ce45fc4fadd20aa72dbe36d, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7055747529640823682, guid: 2851cab58ce45fc4fadd20aa72dbe36d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2851cab58ce45fc4fadd20aa72dbe36d, type: 3}
 --- !u!4 &351332035 stripped
@@ -429,11 +437,40 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
-  - {fileID: 473910211}
   - {fileID: 473910210}
+  - {fileID: 473910211}
   sceneViewId: 1
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &473910213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 473910209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c895356e184614f4c8c39e07c72734ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &473910214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 473910209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd08475b23aa548b7b9d28397d430b32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distance: 7
+  height: 10
+  centerOffset: {x: 0, y: 0, z: 0}
+  followOnStart: 0
+  smoothSpeed: 0.125
 --- !u!1 &598161295
 GameObject:
   m_ObjectHideFlags: 0
@@ -877,7 +914,6 @@ GameObject:
   - component: {fileID: 1265903286}
   - component: {fileID: 1265903285}
   - component: {fileID: 1265903284}
-  - component: {fileID: 1265903287}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -950,22 +986,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 50, y: 0, z: 0}
---- !u!114 &1265903287
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1265903283}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43957cade5f2cd345841c8e2f83a6b74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 543450651805899236}
-  zDistance: 5
-  yDistance: 10
-  mainCamera: {fileID: 1265903285}
 --- !u!1 &1430964689
 GameObject:
   m_ObjectHideFlags: 0
@@ -1336,6 +1356,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cubo (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7055747529640823682, guid: 2851cab58ce45fc4fadd20aa72dbe36d, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7055747529640823682, guid: 2851cab58ce45fc4fadd20aa72dbe36d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2851cab58ce45fc4fadd20aa72dbe36d, type: 3}
 --- !u!4 &1802575246 stripped
@@ -1522,11 +1550,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &543450651805899236 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4033202084640891422, guid: 4ec6fad6e4ede1d47a2b10e06cab29f6, type: 3}
-  m_PrefabInstance: {fileID: 3490983023484795898}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2810099171515781015
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1597,6 +1620,14 @@ PrefabInstance:
     - target: {fileID: 2810099171168725333, guid: 2851cab58ce45fc4fadd20aa72dbe36d, type: 3}
       propertyPath: m_Name
       value: Cubo
+      objectReference: {fileID: 0}
+    - target: {fileID: 7055747529640823682, guid: 2851cab58ce45fc4fadd20aa72dbe36d, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7055747529640823682, guid: 2851cab58ce45fc4fadd20aa72dbe36d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2851cab58ce45fc4fadd20aa72dbe36d, type: 3}
