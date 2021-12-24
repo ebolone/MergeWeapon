@@ -1,13 +1,15 @@
+using Photon.Pun;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class RifleScript : MonoBehaviour
+public class RifleScript : MonoBehaviourPun
 {
 
     //bullet and stats
     public GameObject bullet;
     public float shootForce;
+    
 
     //rifle stats
     public float damagePerBullet;
@@ -72,7 +74,7 @@ public class RifleScript : MonoBehaviour
         shooting = playerInput.actions["Shoot"].triggered;
 
         //shooting
-        if (readyToShoot && shooting && !reloading && bulletsLeft > 0)
+        if (readyToShoot && shooting && !reloading && bulletsLeft > 0 && photonView.IsMine)
         {
             bulletsShot = 0;
             animator.SetBool("isShooting", true);
@@ -109,6 +111,7 @@ public class RifleScript : MonoBehaviour
         Vector3 direction = targetPoint - attackPoint.position;
 
         //shoot the bullet
+        photonView.RPC("instantiateBullet", RpcTarget.All, null);
         GameObject currentBullet = Instantiate(bullet, attackPoint.position, Quaternion.identity);
         currentBullet.SendMessage("setBulletDamage", damagePerBullet);
         currentBullet.GetComponent<Rigidbody>().AddForce(direction.normalized * shootForce,ForceMode.Impulse);
@@ -151,5 +154,11 @@ public class RifleScript : MonoBehaviour
     {
         bulletsLeft = magazineSize;
         reloading = false;
+    }
+
+    [PunRPC]
+    void instantiateBullet()
+    {
+        Instantiate(bullet, attackPoint.transform);
     }
 }
