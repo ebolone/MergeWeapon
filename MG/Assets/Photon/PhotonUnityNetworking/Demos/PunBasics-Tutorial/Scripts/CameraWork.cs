@@ -106,12 +106,12 @@ namespace Photon.Pun.Demo.PunBasics
 		/// </summary>
 		void Follow()
 		{
-			cameraOffset.z = -distance;
+			cameraOffset.z = distance;
 			cameraOffset.y = height;
-			
-		    cameraTransform.position = Vector3.Lerp(cameraTransform.position, this.transform.position +this.transform.TransformVector(cameraOffset), smoothSpeed*Time.deltaTime);
 
-		    cameraTransform.LookAt(this.transform.position + centerOffset);
+			cameraTransform.position = new Vector3(this.transform.position.x, this.transform.position.y + cameraOffset.y, this.transform.position.z - cameraOffset.z);
+
+			cameraTransform.LookAt(this.transform.position + centerOffset);
 		    
 	    }
 
