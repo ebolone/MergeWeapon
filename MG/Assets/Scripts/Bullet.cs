@@ -6,15 +6,27 @@ public class Bullet : MonoBehaviour
 {
 
     private float bulletDamage;
+    public float bulletSpeed;
+    private Rigidbody rb;
+
+
+    void Start() 
+    { 
+     rb = gameObject.GetComponent<Rigidbody>();
+    }
 
     public void setBulletDamage(float val)
     {
         bulletDamage = val;
     }
 
+    void Update()
+    {
+        transform.position += transform.right * Time.deltaTime * bulletSpeed;
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
-        collision.gameObject.GetComponent<Enemy>().TakeDamage(bulletDamage);
         Destroy(gameObject);
     }
 }
