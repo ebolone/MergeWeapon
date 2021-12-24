@@ -22,7 +22,7 @@ public class Bullet : MonoBehaviour
 
     void Update()
     {
-        rb.AddForce(transform.right);
+        transform.position += transform.right * Time.deltaTime * bulletSpeed;
     }
 
     private void OnCollisionEnter(Collision collision)
