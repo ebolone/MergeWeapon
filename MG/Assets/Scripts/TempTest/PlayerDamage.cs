@@ -12,7 +12,6 @@ public class PlayerDamage : MonoBehaviourPun
 
     public float maxHp;
     private float currentHp;
-    public HealthBar healthBar;
     public GameObject destroyEffect;
 
 
@@ -21,8 +20,17 @@ public class PlayerDamage : MonoBehaviourPun
         if (photonView.IsMine)
         {
             currentHp = maxHp;
-            healthBar.setMaxHealth(maxHp);
+           setMaxHealth(maxHp);
         }
+    }
+
+    private void Update()
+    {
+        if (currentHp <= 0 && photonView.IsMine)
+        {
+            PhotonNetwork.Destroy(gameObject);
+        }
+
     }
 
     public void GetDamage(float amountOfDamage)
@@ -34,9 +42,10 @@ public class PlayerDamage : MonoBehaviourPun
     public void ApplyDamage(float amountOfDamage)
     {
         currentHp -= amountOfDamage;
-        healthBar.setHealth(currentHp);
-        if (currentHp <= 0)
-            Die();
+        if (photonView.IsMine)
+        {
+            setHealth(currentHp);
+        }
     }
 
     public void Die()

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
 
-    private float bulletDamage;
+    public float bulletDamage;
     public float bulletSpeed;
     private Rigidbody rb;
 
@@ -25,8 +25,12 @@ public class Bullet : MonoBehaviour
         transform.position += transform.right * Time.deltaTime * bulletSpeed;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision col)
     {
+        if (col.gameObject.GetComponent<PlayerDamage>() != null)
+        {
+            col.gameObject.GetComponent<PlayerDamage>().GetDamage(bulletDamage);
+        }
         Destroy(gameObject);
     }
 }
