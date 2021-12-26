@@ -1,8 +1,9 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Bullet : MonoBehaviourPun
 {
 
     public float bulletDamage;
@@ -27,9 +28,9 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision col)
     {
-        if (col.gameObject.GetComponent<PlayerDamage>() != null)
+        if (col.collider.tag == "Player" && PhotonNetwork.IsMasterClient)
         {
-            col.gameObject.GetComponent<PlayerDamage>().GetDamage(bulletDamage);
+            col.collider.gameObject.GetComponent<PlayerDamage>().GetDamage(bulletDamage);
         }
         Destroy(gameObject);
     }
