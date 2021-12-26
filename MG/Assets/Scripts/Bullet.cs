@@ -1,11 +1,12 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Bullet : MonoBehaviourPun
 {
 
-    private float bulletDamage;
+    public float bulletDamage;
     public float bulletSpeed;
     private Rigidbody rb;
 
@@ -25,8 +26,12 @@ public class Bullet : MonoBehaviour
         transform.position += transform.right * Time.deltaTime * bulletSpeed;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision col)
     {
+        if (col.collider.tag == "Player" && PhotonNetwork.IsMasterClient)
+        {
+            col.collider.gameObject.GetComponent<PlayerDamage>().GetDamage(bulletDamage);
+        }
         Destroy(gameObject);
     }
 }
