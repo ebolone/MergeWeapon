@@ -13,12 +13,14 @@ public class PlayerDamage : MonoBehaviourPun
     public float maxHp;
     private float currentHp;
     public GameObject destroyEffect;
+    GameObject killText;
 
 
     private void Start()
     {
         if (photonView.IsMine)
         {
+            killText = GameObject.FindGameObjectWithTag("KillText");
             currentHp = maxHp;
            setMaxHealth(maxHp);
         }
@@ -69,5 +71,9 @@ public class PlayerDamage : MonoBehaviourPun
         slider.value = health;
 
         fill.color = gradient.Evaluate(slider.normalizedValue);
+    }
+    private void OnDestroy()
+    {
+        
     }
 }
