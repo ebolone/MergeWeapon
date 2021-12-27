@@ -28,6 +28,7 @@ public class PlayerDamage : MonoBehaviourPun
     {
         if (currentHp <= 0 && photonView.IsMine)
         {
+            NetworkManager.netManager.PlayerIsDead();
             PhotonNetwork.Destroy(gameObject);
         }
 
