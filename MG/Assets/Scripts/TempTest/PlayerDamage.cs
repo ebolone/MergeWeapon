@@ -17,11 +17,8 @@ public class PlayerDamage : MonoBehaviourPun
 
     private void Start()
     {
-        if (photonView.IsMine)
-        {
             currentHp = maxHp;
            setMaxHealth(maxHp);
-        }
     }
 
     private void Update()
@@ -43,10 +40,7 @@ public class PlayerDamage : MonoBehaviourPun
     public void ApplyDamage(float amountOfDamage)
     {
         currentHp -= amountOfDamage;
-        if (photonView.IsMine)
-        {
-            setHealth(currentHp);
-        }
+        setHealth(currentHp);
     }
 
     public void Die()
