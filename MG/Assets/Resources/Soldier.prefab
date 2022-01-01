@@ -8343,7 +8343,7 @@ GameObject:
   - component: {fileID: 4874600483333318846}
   - component: {fileID: 3565509660956141996}
   - component: {fileID: 8506072943652697277}
-  - component: {fileID: 2726202916690458286}
+  - component: {fileID: 4889179202118348118}
   m_Layer: 0
   m_Name: UserName
   m_TagString: Untagged
@@ -8368,7 +8368,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 2.36}
+  m_AnchoredPosition: {x: 0, y: 2.52}
   m_SizeDelta: {x: 400, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &8753858820516117052
@@ -8446,7 +8446,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPV: {fileID: 2027006925972600728}
   text: {fileID: 5895337341542864519}
---- !u!114 &2726202916690458286
+--- !u!114 &4889179202118348118
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8455,7 +8455,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 9100984074438607309}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9383a28454beac74a968ecc3041ca355, type: 3}
+  m_Script: {fileID: 11500000, guid: 5472198c4f2d9f74891bc30b01afe8f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &9164863577450612455
