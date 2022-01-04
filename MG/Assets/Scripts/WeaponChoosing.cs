@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class WeaponChoosing : MonoBehaviour
 {
-    public int selectedArma1 = 0;
-    public int selectedArma2 = 0;
+    public static int selectedArma1;
+    public static int selectedArma2;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +25,6 @@ public class WeaponChoosing : MonoBehaviour
         {
             if (i == selectedArma1 || i == selectedArma2)
                 weapon.gameObject.SetActive(true);
-            else weapon.gameObject.SetActive(false);
             i++;
         }
     }
