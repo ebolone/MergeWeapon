@@ -6,18 +6,26 @@
             "id": "9b827f98-2ad9-4265-b80c-721b76ffee62",
             "actions": [
                 {
-                    "name": "Move",
+                    "name": "Shoot",
                     "type": "Value",
-                    "id": "e50f9c25-2d9d-41e7-b07b-2c9acac91252",
+                    "id": "8f8ce140-54b3-43d3-b91f-e58a576cc414",
+                    "expectedControlType": "Stick",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Look",
+                    "type": "Value",
+                    "id": "23e49f4a-39e9-4f4c-9b7d-57290d37c65f",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
                 },
                 {
-                    "name": "Shoot",
-                    "type": "Button",
-                    "id": "8f8ce140-54b3-43d3-b91f-e58a576cc414",
-                    "expectedControlType": "Button",
+                    "name": "Move",
+                    "type": "Value",
+                    "id": "82708daf-5bef-4255-946c-95df19ea8c14",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
                 }
@@ -25,7 +33,29 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "09b600e0-6899-42ed-9fb3-f881e47f4180",
+                    "id": "4257e3b8-bd7a-40db-b94a-42fda6b22567",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "Tap(duration=10)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "adc1747a-e096-4aa9-9752-326dafa62dab",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "68b837ef-98fa-4f92-af2f-16334bbb0637",
                     "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
@@ -33,20 +63,21 @@
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "4257e3b8-bd7a-40db-b94a-42fda6b22567",
-                    "path": "<Gamepad>/buttonEast",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Shoot",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 }
             ]
         }
     ],
-    "controlSchemes": []
+    "controlSchemes": [
+        {
+            "name": "New control scheme",
+            "bindingGroup": "New control scheme",
+            "devices": [
+                {
+                    "devicePath": "<Gamepad>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
 }
