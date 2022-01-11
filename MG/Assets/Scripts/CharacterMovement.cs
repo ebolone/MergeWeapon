@@ -19,8 +19,10 @@ public class CharacterMovement : MonoBehaviour
     private Animator animator;
     private PlayerInput playerInput;
 
-    private float turnSmoothTime = 0.1f;
+    private float turnSmoothTime = 0.3f;
     float turnSmoothVelocity;
+
+    public Vector3 gg;
 
     private void Start()
     {
@@ -37,15 +39,24 @@ public class CharacterMovement : MonoBehaviour
         
         Vector2 joystickInputt = playerInput.actions["Look"].ReadValue<Vector2>();
         Vector3 joystickLook = new Vector3 (joystickInputt.x, 0, joystickInputt.y).normalized;
+        if(joystickLook!= Vector3.zero)
+        {
+            gg = joystickLook;
+        }
 
-        if (direction != Vector3.zero)
+        bool shot = playerInput.actions["Shoot"].triggered;
+
+        if(shot)
         {
-            gameObject.transform.forward = direction;
+            direction = Vector3.zero;
+            gameObject.transform.forward=gg;
+        } else if(direction != Vector3.zero) 
+        {
+            //gameObject.transform.forward=direction;
             animator.SetBool("isWalking", true);
-        } 
-        else if(joystickLook != Vector3.zero)
+        } else if(joystickLook != Vector3.zero)
         {
-            gameObject.transform.forward=joystickLook;
+           gameObject.transform.forward=joystickLook;
         } else
         {
             animator.SetBool("isWalking", false);

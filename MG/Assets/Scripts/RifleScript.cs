@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 public class RifleScript : MonoBehaviour
 {
-
+    CharacterMovement leggi;
     //bullet and stats
     public GameObject bullet;
     public float shootForce;
@@ -52,6 +52,7 @@ public class RifleScript : MonoBehaviour
 
     private void Start()
     {
+        leggi=gameObject.GetComponent<CharacterMovement>();
     }
 
     // Update is called once per frame
@@ -70,12 +71,13 @@ public class RifleScript : MonoBehaviour
     {
         //check if shooting
         shooting = playerInput.actions["Shoot"].triggered;
+        
 
         //shooting
         if (readyToShoot && shooting && !reloading && bulletsLeft > 0)
         {
             bulletsShot = 0;
-            animator.SetBool("isShooting", true);
+            animator.SetBool("isShooting", true);            
             Shoot();
         }
         //reloading
@@ -91,7 +93,7 @@ public class RifleScript : MonoBehaviour
     }
 
     private void Shoot()
-    {
+    {        
         readyToShoot = false;
 
         Ray ray = fpsCam.ViewportPointToRay(new Vector3( 0.5f, 0.5f, 0));
@@ -107,6 +109,8 @@ public class RifleScript : MonoBehaviour
 
         //direction
         Vector3 direction = targetPoint - attackPoint.position;
+        
+        //Vector3 direction = leggi.gg;
 
         //shoot the bullet
         GameObject currentBullet = Instantiate(bullet, attackPoint.position, Quaternion.identity);
