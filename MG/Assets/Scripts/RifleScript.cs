@@ -1,6 +1,8 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
+using System.Collections.Generic;
 
 public class RifleScript : MonoBehaviour
 {
@@ -58,7 +60,7 @@ public class RifleScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetInput();
+        StartCoroutine(GetInput());
 
         //ammo display
         if (ammunitionDisplay != null)
@@ -67,8 +69,9 @@ public class RifleScript : MonoBehaviour
         }
     }
 
-    private void GetInput()
+    IEnumerator GetInput()
     {
+        yield return null;
         //check if shooting
         shooting = playerInput.actions["Shoot"].triggered;
         
