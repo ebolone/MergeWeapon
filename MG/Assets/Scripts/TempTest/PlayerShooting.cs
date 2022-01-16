@@ -1,20 +1,22 @@
 using Photon.Pun;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
+using System.Collections.Generic;
 
 public class PlayerShooting : MonoBehaviourPun
 {
 
     public Transform firePoint;
-    public GameObject bulletPrefab;
-
+    public List<GameObject> vfx = new List<GameObject>();
+    public GameObject effectToSpawn;
     float fireRate = 0.3f;
     float timePassed = 0f;
 
     // Use this for initialization
     void Start()
     {
-
+        effectToSpawn = vfx[0];
     }
 
     // Update is called once per frame
@@ -38,6 +40,11 @@ public class PlayerShooting : MonoBehaviourPun
     [PunRPC]
     void InstantiateBullet()
     {
-        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        GameObject vfx;
+        if (firePoint != null)
+        {
+            vfx = Instantiate(effectToSpawn, firePoint.transform.position, firePoint.rotation);
+            vfx.transform.localRotation = this.transform.rotation;
+        }
     }
 }

@@ -81,7 +81,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4303704472468668040
 Transform:
   m_ObjectHideFlags: 0
@@ -622,7 +622,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firePoint: {fileID: 2027006925236156056}
-  bulletPrefab: {fileID: 1152081771048069245, guid: d1c820b081ee57444856082ad0c95622, type: 3}
+  vfx:
+  - {fileID: 1152081771048069245, guid: d1c820b081ee57444856082ad0c95622, type: 3}
+  effectToSpawn: {fileID: 0}
 --- !u!65 &2597626949319804674
 BoxCollider:
   m_ObjectHideFlags: 0
