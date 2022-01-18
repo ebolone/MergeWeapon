@@ -623,9 +623,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 2027006925236156056}
   vfx:
+  - {fileID: 8106093315786391921, guid: dfd50982dc04ff24b9daa546fc06ae0e, type: 3}
   - {fileID: 8419923045877596740, guid: 3ccb9347f1766cc4687f2dc44c9ce376, type: 3}
   - {fileID: 1152081771048069245, guid: d1c820b081ee57444856082ad0c95622, type: 3}
-  effectToSpawn: {fileID: 0}
+  effectToSpawn: {fileID: 8106093315786391921, guid: dfd50982dc04ff24b9daa546fc06ae0e, type: 3}
 --- !u!65 &2597626949319804674
 BoxCollider:
   m_ObjectHideFlags: 0
