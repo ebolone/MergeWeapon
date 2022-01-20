@@ -6,6 +6,8 @@ public class ProjectileMove : MonoBehaviour
 {
     public float speed;
     public float fireRate;
+    public int  numeroColpi = 1;
+    public float tempoTraColpiConsecutivi = 0;
     // Start is called before the first frame update
     void Start()
     {

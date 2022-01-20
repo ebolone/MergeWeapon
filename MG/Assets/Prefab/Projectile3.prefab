@@ -4850,7 +4850,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  fireRate: 2
+  fireRate: 3
+  numeroColpi: 4
+  tempoTraColpiConsecutivi: 0
 --- !u!1 &8182767217600677479
 GameObject:
   m_ObjectHideFlags: 0

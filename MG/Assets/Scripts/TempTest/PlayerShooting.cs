@@ -10,8 +10,7 @@ public class PlayerShooting : MonoBehaviourPun
     public Transform firePoint;
     public List<GameObject> vfx = new List<GameObject>();
     public GameObject effectToSpawn;
-    float fireRate = 0.3f;
-    float timePassed = 0f;
+    private float timeToFire = 0;
 
     // Use this for initialization
     void Start()
@@ -22,10 +21,16 @@ public class PlayerShooting : MonoBehaviourPun
     // Update is called once per frame
     void Update()
     {
-        timePassed += Time.deltaTime;
-        if (photonView.IsMine && Input.GetMouseButton(0) && timePassed >= fireRate)
+        if (photonView.IsMine && Input.GetMouseButton(0) && Time.time >= timeToFire)
         {
-            Shooting();
+            timeToFire = Time.time + 1 / effectToSpawn.GetComponent<ProjectileMove>().fireRate;
+            for(int i = 0; i < effectToSpawn.GetComponent<ProjectileMove>().numeroColpi; i++)
+            {
+
+                Shooting();
+
+            }
+            
         }
     }
 
@@ -33,7 +38,6 @@ public class PlayerShooting : MonoBehaviourPun
     {
         //Istanzia un proiettile 
         photonView.RPC("InstantiateBullet", RpcTarget.All, null);
-        timePassed = 0f;
     }
 
 
