@@ -289,7 +289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174dfb9cae2e2c446b3c7c1efb381dbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPreFabs: {fileID: 1215982751842123522, guid: 31b228f4f20179e4ab017ca298e82ce5, type: 3}
+  playerPreFabs: {fileID: 1465579406773182300, guid: 55e8c87d7851e2f488d06084e2f4636f, type: 3}
   RespawnText: {fileID: 170184613}
 --- !u!4 &126130741
 Transform:
