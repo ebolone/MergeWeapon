@@ -15,9 +15,17 @@
                 },
                 {
                     "name": "Shoot",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "8f8ce140-54b3-43d3-b91f-e58a576cc414",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Look",
+                    "type": "Value",
+                    "id": "d49f6ae2-ff06-4f2c-ac12-0a2c93b48a39",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
                 }
@@ -37,11 +45,33 @@
                 {
                     "name": "",
                     "id": "4257e3b8-bd7a-40db-b94a-42fda6b22567",
-                    "path": "<Gamepad>/buttonEast",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "Tap(duration=1)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3ee65f5e-488f-421d-b22f-65f6d5584abf",
+                    "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "570c5a5e-f52a-4163-a2e9-bf7e02fbcd15",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Look",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

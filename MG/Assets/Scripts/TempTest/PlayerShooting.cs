@@ -1,6 +1,8 @@
 using Photon.Pun;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
+using System.Collections.Generic;
 
 public class PlayerShooting : MonoBehaviourPun
 {
@@ -11,6 +13,9 @@ public class PlayerShooting : MonoBehaviourPun
     float fireRate = 0.3f;
     float timePassed = 0f;
 
+    public PlayerInput playerInput;
+    bool shooting;
+
     // Use this for initialization
     void Start()
     {
@@ -20,15 +25,18 @@ public class PlayerShooting : MonoBehaviourPun
     // Update is called once per frame
     void Update()
     {
+        shooting = playerInput.actions["Shoot"].triggered;
+        
         timePassed += Time.deltaTime;
-        if (photonView.IsMine && Input.GetMouseButton(0) && timePassed >= fireRate)
+        if (photonView.IsMine && shooting && timePassed >= fireRate)
         {
-            Shooting();
+            StartCoroutine(Shooting());
         }
     }
 
-    void Shooting()
+    IEnumerator Shooting()
     {
+        yield return null;
         //Istanzia un proiettile 
         photonView.RPC("InstantiateBullet", RpcTarget.All, null);
         timePassed = 0f;
