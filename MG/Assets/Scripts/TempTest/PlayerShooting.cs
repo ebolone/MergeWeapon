@@ -12,9 +12,7 @@ public class PlayerShooting : MonoBehaviourPun
 
     float fireRate = 0.3f;
     float timePassed = 0f;
-
-    public PlayerInput playerInput;
-    bool shooting;
+    private PlayerInput playerInput;
 
     // Use this for initialization
     void Start()
@@ -25,21 +23,23 @@ public class PlayerShooting : MonoBehaviourPun
     // Update is called once per frame
     void Update()
     {
-        shooting = playerInput.actions["Shoot"].triggered;
         
-        timePassed += Time.deltaTime;
-        if (photonView.IsMine && shooting && timePassed >= fireRate)
-        {
+        //timePassed += Time.deltaTime;
+        //photonView.IsMine && Input.GetMouseButton(0) && timePassed >= fireRate)
+        
             StartCoroutine(Shooting());
-        }
     }
 
     IEnumerator Shooting()
     {
         yield return null;
         //Istanzia un proiettile 
-        photonView.RPC("InstantiateBullet", RpcTarget.All, null);
-        timePassed = 0f;
+        bool shot = playerInput.actions["Shoot"].triggered;
+        if (shot)
+        {
+            photonView.RPC("InstantiateBullet", RpcTarget.All, null);
+            timePassed = 0f;
+        }
     }
 
 

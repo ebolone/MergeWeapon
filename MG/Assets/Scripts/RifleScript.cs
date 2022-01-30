@@ -1,15 +1,15 @@
+using Photon.Pun;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using System.Collections;
-using System.Collections.Generic;
 
-public class RifleScript : MonoBehaviour
+public class RifleScript : MonoBehaviourPun
 {
-    CharacterMovement leggi;
+
     //bullet and stats
     public GameObject bullet;
     public float shootForce;
+    
 
     //rifle stats
     public float damagePerBullet;
@@ -54,13 +54,12 @@ public class RifleScript : MonoBehaviour
 
     private void Start()
     {
-        leggi=gameObject.GetComponent<CharacterMovement>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        StartCoroutine(GetInput());
+        GetInput();
 
         //ammo display
         if (ammunitionDisplay != null)
@@ -69,18 +68,16 @@ public class RifleScript : MonoBehaviour
         }
     }
 
-    IEnumerator GetInput()
+    private void GetInput()
     {
-        yield return null;
         //check if shooting
         shooting = playerInput.actions["Shoot"].triggered;
-        
 
         //shooting
-        if (readyToShoot && shooting && !reloading && bulletsLeft > 0)
+        if (readyToShoot && shooting && !reloading && bulletsLeft > 0 && photonView.IsMine)
         {
             bulletsShot = 0;
-            animator.SetBool("isShooting", true);            
+            animator.SetBool("isShooting", true);
             Shoot();
         }
         //reloading
@@ -96,7 +93,7 @@ public class RifleScript : MonoBehaviour
     }
 
     private void Shoot()
-    {        
+    {
         readyToShoot = false;
 
         Ray ray = fpsCam.ViewportPointToRay(new Vector3( 0.5f, 0.5f, 0));
@@ -112,10 +109,9 @@ public class RifleScript : MonoBehaviour
 
         //direction
         Vector3 direction = targetPoint - attackPoint.position;
-        
-        //Vector3 direction = leggi.gg;
 
         //shoot the bullet
+        photonView.RPC("instantiateBullet", RpcTarget.All, null);
         GameObject currentBullet = Instantiate(bullet, attackPoint.position, Quaternion.identity);
         currentBullet.SendMessage("setBulletDamage", damagePerBullet);
         currentBullet.GetComponent<Rigidbody>().AddForce(direction.normalized * shootForce,ForceMode.Impulse);
@@ -158,5 +154,11 @@ public class RifleScript : MonoBehaviour
     {
         bulletsLeft = magazineSize;
         reloading = false;
+    }
+
+    [PunRPC]
+    void instantiateBullet()
+    {
+        Instantiate(bullet, attackPoint.transform);
     }
 }
