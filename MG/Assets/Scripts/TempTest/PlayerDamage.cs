@@ -13,18 +13,21 @@ public class PlayerDamage : MonoBehaviourPun
     public float maxHp;
     private float currentHp;
     public GameObject destroyEffect;
+    public Animator animator;
 
 
     private void Start()
     {
-            currentHp = maxHp;
-           setMaxHealth(maxHp);
+        animator.SetBool("isDead", false);
+        currentHp = maxHp;
+        setMaxHealth(maxHp);
     }
 
     private void Update()
     {
         if (currentHp <= 0 && photonView.IsMine)
         {
+            animator.SetBool("isDead", true);
             NetworkManager.netManager.PlayerIsDead();
             PhotonNetwork.Destroy(gameObject);
         }
