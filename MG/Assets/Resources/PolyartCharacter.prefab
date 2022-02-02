@@ -1998,9 +1998,6 @@ MonoBehaviour:
     Name: isShooting
   - Type: 4
     SynchronizeType: 0
-    Name: isRealoding
-  - Type: 4
-    SynchronizeType: 0
     Name: isDead
   m_SynchronizeLayers:
   - SynchronizeType: 1
