@@ -1991,16 +1991,19 @@ MonoBehaviour:
   ShowParameterInspector: 1
   m_SynchronizeParameters:
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 2
     Name: isWalking
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 2
     Name: isShooting
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 2
     Name: isDead
+  - Type: 4
+    SynchronizeType: 2
+    Name: isRealoading
   m_SynchronizeLayers:
-  - SynchronizeType: 1
+  - SynchronizeType: 2
     LayerIndex: 0
 --- !u!114 &2066496853032103575
 MonoBehaviour:
