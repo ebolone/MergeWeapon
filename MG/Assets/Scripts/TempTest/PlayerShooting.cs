@@ -21,7 +21,7 @@ public class PlayerShooting : MonoBehaviourPun
     void Update()
     {
         timePassed += Time.deltaTime;
-        if (photonView.IsMine && Input.GetKeyDown(KeyCode.K) && timePassed >= fireRate)
+        if (photonView.IsMine && Input.GetKey(KeyCode.K) && timePassed >= fireRate)
         {
             Shooting();
         }
