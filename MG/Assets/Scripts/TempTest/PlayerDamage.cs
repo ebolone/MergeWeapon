@@ -13,20 +13,23 @@ public class PlayerDamage : MonoBehaviourPun
     public float maxHp;
     private float currentHp;
     public GameObject destroyEffect;
+    public Animator animator;
 
 
     private void Start()
     {
-            currentHp = maxHp;
-           setMaxHealth(maxHp);
+        animator.ResetTrigger("isDead");
+        currentHp = maxHp;
+        setMaxHealth(maxHp);
     }
 
     private void Update()
     {
         if (currentHp <= 0 && photonView.IsMine)
         {
+            animator.SetTrigger("isDead");
             NetworkManager.netManager.PlayerIsDead();
-            PhotonNetwork.Destroy(gameObject);
+            Invoke("DestroyChar", 1.2f);
         }
 
     }
@@ -63,5 +66,10 @@ public class PlayerDamage : MonoBehaviourPun
         slider.value = health;
 
         fill.color = gradient.Evaluate(slider.normalizedValue);
+    }
+
+    public void DestroyChar()
+    {
+        PhotonNetwork.Destroy(gameObject);
     }
 }
