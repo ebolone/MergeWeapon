@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerShooting : MonoBehaviourPun
 {
-
+    public Animator animator;
     public Transform firePoint;
     public GameObject bulletPrefab;
 
@@ -21,14 +21,17 @@ public class PlayerShooting : MonoBehaviourPun
     void Update()
     {
         timePassed += Time.deltaTime;
-        if (photonView.IsMine && Input.GetMouseButton(0) && timePassed >= fireRate)
+        if (photonView.IsMine && Input.GetKey(KeyCode.K) && timePassed >= fireRate)
         {
             Shooting();
         }
+        else
+            animator.SetBool("isShooting", false);
     }
 
     void Shooting()
     {
+        animator.SetBool("isShooting", true);
         //Istanzia un proiettile 
         photonView.RPC("InstantiateBullet", RpcTarget.All, null);
         timePassed = 0f;
