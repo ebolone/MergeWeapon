@@ -6,12 +6,18 @@ public class GunChoose : MonoBehaviour
 {
     public bool a1 = true;
     public bool a2 = true;
-    [SerializeField] Buttons[] arma_posizione;
+    [SerializeField] Buttons[] arma_posizione_primaria;
+    [SerializeField] Buttons[] arma_posizione_secondaria;
     public void Awake()
     {
-        for(int i = 0; i < arma_posizione.Length; i++)
+        for(int i = 0; i < arma_posizione_primaria.Length; i++)
         {
-            arma_posizione[i].SetValore(i);
+            arma_posizione_primaria[i].SetValore(i);
+            Debug.Log("set" + i);
+        }
+        for (int i = 0; i < arma_posizione_secondaria.Length; i++)
+        {
+            arma_posizione_secondaria[i].SetValore(i);
             Debug.Log("set" + i);
         }
     }
@@ -19,7 +25,7 @@ public class GunChoose : MonoBehaviour
     {
         int valore = arma_scelta.GetValore();
         Debug.Log("valore = " + valore);
-        for(int i = 0; i < arma_posizione.Length; i++)
+        for(int i = 0; i < arma_posizione_primaria.Length; i++)
         {
             if (i == valore)
             {
@@ -32,7 +38,7 @@ public class GunChoose : MonoBehaviour
     {
         int valore = arma_scelta.GetValore();
         Debug.Log("valore = " + valore);
-        for (int i = 0; i < arma_posizione.Length; i++)
+        for (int i = 0; i < arma_posizione_secondaria.Length; i++)
         {
             if (i == valore)
             {

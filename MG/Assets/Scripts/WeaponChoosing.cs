@@ -34,21 +34,23 @@ public class WeaponChoosing : MonoBehaviourPunCallbacks
     void SelectWeaponPrimaria(int index1)
     {
         int i = 0;
-        foreach(Transform weapon in transform.GetChild(1))
+        foreach(Transform weapon in transform.GetChild(0))
         {
             if (i == index1)
                 weapon.gameObject.SetActive(true);
             else weapon.gameObject.SetActive(false);
+            i++;
         }
     }
     void SelectWeaponSecondaria(int index2)
     {
         int i = 0;
-        foreach (Transform weapon in transform.GetChild(2))
+        foreach (Transform weapon in transform.GetChild(1))
         {
             if (i == index2)
                 weapon.gameObject.SetActive(true);
             else weapon.gameObject.SetActive(false);
+            i++;
         }
     }
     public override void OnPlayerPropertiesUpdate(Player targetPlayer, Hashtable changedProps)
