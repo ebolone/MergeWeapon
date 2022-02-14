@@ -15,7 +15,7 @@ public class GunChoose : MonoBehaviour
             Debug.Log("set" + i);
         }
     }
-    public void setArma(Buttons arma_scelta)
+    public void setArmaPrincipale(Buttons arma_scelta)
     {
         int valore = arma_scelta.GetValore();
         Debug.Log("valore = " + valore);
@@ -23,23 +23,23 @@ public class GunChoose : MonoBehaviour
         {
             if (i == valore)
             {
-                Debug.Log("entrato primo if");
-                if (a1)
-                {
-                    WeaponChoosing.selectedArma1 = valore;
-                    a1 = false;
-                    Debug.Log("a1 test" + valore);
-                }
-                else if(a2)
-                { 
-                    WeaponChoosing.selectedArma2 = valore;
-                    a2 = false;
-                    Debug.Log("a2 test" + valore);
-                }
-                return;
+                WeaponChoosing.selectedArma1 = valore;
             }
         }
         
+    }
+    public void setArmaSecondaria(Buttons arma_scelta)
+    {
+        int valore = arma_scelta.GetValore();
+        Debug.Log("valore = " + valore);
+        for (int i = 0; i < arma_posizione.Length; i++)
+        {
+            if (i == valore)
+            {
+                WeaponChoosing.selectedArma2 = valore;
+            }
+        }
+
     }
     public void ResetGun1()
     {
