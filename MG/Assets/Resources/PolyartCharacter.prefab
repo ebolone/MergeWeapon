@@ -2999,12 +2999,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2625896937011543900}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0006, y: 0.0418, z: 0.1896}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.4956176, y: 0.5043442, z: -0.5043444, w: -0.49561778}
+  m_LocalPosition: {x: -153.79305, y: -4.450677, z: -45.3755}
+  m_LocalScale: {x: 652.5249, y: 652.5248, z: 652.5247}
   m_Children: []
-  m_Father: {fileID: 6006813408077881484}
-  m_RootOrder: 3
+  m_Father: {fileID: 877750898482728434}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4461782827777781144
 GameObject:
@@ -3035,6 +3035,7 @@ Transform:
   m_Children:
   - {fileID: 5361459993021439666}
   - {fileID: 8039304642960183494}
+  - {fileID: 6758221645213732411}
   m_Father: {fileID: 1465579406772683554}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3068,7 +3069,6 @@ Transform:
   - {fileID: 4845507801897634831}
   - {fileID: 5442135914073111082}
   - {fileID: 2596496777186017606}
-  - {fileID: 6758221645213732411}
   m_Father: {fileID: 5361459993021439666}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3860,6 +3860,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a21c89b07b12ed546b238510cdb846a1, type: 3}
   m_PrefabInstance: {fileID: 5615146545516099929}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4696247093393785864 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a21c89b07b12ed546b238510cdb846a1, type: 3}
+  m_PrefabInstance: {fileID: 5615146545516099929}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3658403808633469462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4696247093393785864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94adc8ff7dd7ca5469d88b1626783130, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player_PV: {fileID: 4294011172171333082}
 --- !u!1001 &7501837578320426797
 PrefabInstance:
   m_ObjectHideFlags: 0
