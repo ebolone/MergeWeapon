@@ -9,6 +9,8 @@ public class PlayerShooting : MonoBehaviourPun
     public Animator animator;
     public Transform firePoint;
     public GameObject bulletPrefab;
+    public List<GameObject> vfx = new List<GameObject>();
+    public GameObject effectToSpawn;
 
     float fireRate = 0.3f;
     float timePassed = 0f;
@@ -23,6 +25,7 @@ public class PlayerShooting : MonoBehaviourPun
     {
         controller = gameObject.AddComponent<CharacterController>();
         playerInput = gameObject.GetComponent<PlayerInput>();
+        effectToSpawn = vfx[0];
     }
 
     // Update is called once per frame
