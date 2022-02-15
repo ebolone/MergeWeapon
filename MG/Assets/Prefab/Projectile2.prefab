@@ -4952,7 +4952,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8419923045877596741}
   - component: {fileID: 2894973750617671602}
-  - component: {fileID: 8575839097519817865}
   m_Layer: 0
   m_Name: Projectile2
   m_TagString: Untagged
@@ -4991,19 +4990,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 20
   fireRate: 4
---- !u!65 &8575839097519817865
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8419923045877596740}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.50019455, y: 0.35344696, z: 0.306674}
-  m_Center: {x: 0.111543655, y: 0, z: -0.0020222664}
+  numeroColpi: 1
+  tempoTraColpiConsecutivi: 0
 --- !u!1 &8419923046642103031
 GameObject:
   m_ObjectHideFlags: 0

@@ -2108,7 +2108,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1465579406763666654}
   firePoint: {fileID: 6758221645213732411}
-  bulletPrefab: {fileID: 2361786583545568840, guid: 7599c3a524f28bb45820cfcc8fe778a6, type: 3}
+  vfx:
+  - {fileID: 8419923045877596740, guid: 3ccb9347f1766cc4687f2dc44c9ce376, type: 3}
+  - {fileID: 1152081771048069245, guid: d1c820b081ee57444856082ad0c95622, type: 3}
+  - {fileID: 8106093315786391921, guid: dfd50982dc04ff24b9daa546fc06ae0e, type: 3}
+  - {fileID: 7761537806033531109, guid: 0d0361b45db40be459d3c2d7deb1803f, type: 3}
+  effectToSpawn: {fileID: 8419923045877596740, guid: 3ccb9347f1766cc4687f2dc44c9ce376, type: 3}
   playerInput: {fileID: 0}
 --- !u!114 &6903058486983729317
 MonoBehaviour:

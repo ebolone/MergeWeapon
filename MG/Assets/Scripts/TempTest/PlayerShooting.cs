@@ -8,7 +8,6 @@ public class PlayerShooting : MonoBehaviourPun
 {
     public Animator animator;
     public Transform firePoint;
-    public GameObject bulletPrefab;
     public List<GameObject> vfx = new List<GameObject>();
     public GameObject effectToSpawn;
 
@@ -40,8 +39,7 @@ public class PlayerShooting : MonoBehaviourPun
             animator.SetBool("isShooting", false);
         }
 
-        timePassed += Time.deltaTime;
-        if (photonView.IsMine && shooting && timePassed >= fireRate)
+        if (photonView.IsMine && shooting && Time.time >= timeToFire)
         {
             timeToFire = Time.time + 1 / effectToSpawn.GetComponent<ProjectileMove>().fireRate;
             for (int i = 0; i < effectToSpawn.GetComponent<ProjectileMove>().numeroColpi; i++)
@@ -57,6 +55,7 @@ public class PlayerShooting : MonoBehaviourPun
     {
         //Istanzia un proiettile 
         photonView.RPC("InstantiateBullet", RpcTarget.All, null);
+        Debug.Log("entra nello shooting?");
     }
 
 
@@ -66,6 +65,7 @@ public class PlayerShooting : MonoBehaviourPun
         GameObject vfx;
         if (firePoint != null)
         {
+            Debug.Log("spara?");
             vfx = Instantiate(effectToSpawn, firePoint.transform.position, firePoint.rotation);
             vfx.transform.localRotation = this.transform.rotation;
         }
