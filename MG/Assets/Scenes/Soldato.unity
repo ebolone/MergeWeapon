@@ -555,7 +555,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_MovementRange: 50
-  m_ControlPath: <Gamepad>/rightStick
+  m_ControlPath: <Joystick>/stick
 --- !u!114 &808497047
 MonoBehaviour:
   m_ObjectHideFlags: 0

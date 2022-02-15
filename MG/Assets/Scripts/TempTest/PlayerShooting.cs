@@ -8,14 +8,17 @@ public class PlayerShooting : MonoBehaviourPun
 {
     public Animator animator;
     public Transform firePoint;
-    public List<GameObject> vfx = new List<GameObject>();
-    public GameObject effectToSpawn;
+    public List<GameObject> vfx1 = new List<GameObject>();
+    public List<GameObject> vfx2 = new List<GameObject>();
+    private GameObject effectToSpawnPrimario;
+    private GameObject effectToSpawnSecondario;
 
     float timeToFire = 0f;
 
-    public PlayerInput playerInput;
+    private PlayerInput playerInput;
     private CharacterController controller;
     bool shooting;
+    bool shooting2;
     bool look;
 
     // Use this for initialization
@@ -23,13 +26,15 @@ public class PlayerShooting : MonoBehaviourPun
     {
         controller = gameObject.AddComponent<CharacterController>();
         playerInput = gameObject.GetComponent<PlayerInput>();
-        effectToSpawn = vfx[0];
+        effectToSpawnPrimario = vfx1[WeaponChoosing.selectedArma1];
+        effectToSpawnSecondario = vfx2[WeaponChoosing.selectedArma2];
     }
 
     // Update is called once per frame
     void Update()
     {
-        shooting = playerInput.actions["Shoot"].triggered; 
+        shooting = playerInput.actions["Shoot"].triggered;
+        shooting2 = playerInput.actions["Shoot2"].triggered;
         look = playerInput.actions["Look"].triggered;
 
         if(look){
@@ -41,8 +46,19 @@ public class PlayerShooting : MonoBehaviourPun
 
         if (photonView.IsMine && shooting && Time.time >= timeToFire)
         {
-            timeToFire = Time.time + 1 / effectToSpawn.GetComponent<ProjectileMove>().fireRate;
-            for (int i = 0; i < effectToSpawn.GetComponent<ProjectileMove>().numeroColpi; i++)
+            timeToFire = Time.time + 1 / effectToSpawnPrimario.GetComponent<ProjectileMove>().fireRate;
+            for (int i = 0; i < effectToSpawnPrimario.GetComponent<ProjectileMove>().numeroColpi; i++)
+            {
+
+
+                Shooting();
+
+            }
+        }
+        if (photonView.IsMine && shooting2 && Time.time >= timeToFire)
+        {
+            timeToFire = Time.time + 1 / effectToSpawnSecondario.GetComponent<ProjectileMove>().fireRate;
+            for (int i = 0; i < effectToSpawnSecondario.GetComponent<ProjectileMove>().numeroColpi; i++)
             {
 
                 Shooting();
@@ -63,10 +79,16 @@ public class PlayerShooting : MonoBehaviourPun
     void InstantiateBullet()
     {
         GameObject vfx;
-        if (firePoint != null)
+        if (shooting)
         {
             Debug.Log("spara?");
-            vfx = Instantiate(effectToSpawn, firePoint.transform.position, firePoint.rotation);
+            vfx = Instantiate(effectToSpawnPrimario, firePoint.transform.position, firePoint.rotation);
+            vfx.transform.localRotation = this.transform.rotation;
+        }
+        else if (shooting2)
+        {
+            Debug.Log("spara?");
+            vfx = Instantiate(effectToSpawnSecondario, firePoint.transform.position, firePoint.rotation);
             vfx.transform.localRotation = this.transform.rotation;
         }
     }

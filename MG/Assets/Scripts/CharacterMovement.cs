@@ -45,8 +45,9 @@ public class CharacterMovement : MonoBehaviour
         }
 
         bool shot = playerInput.actions["Shoot"].triggered;
+        bool shot2 = playerInput.actions["Shoot2"].triggered;
 
-        if(shot)
+        if (shot || shot2)
         {
             direction = Vector3.zero;
             gameObject.transform.forward=gg;
