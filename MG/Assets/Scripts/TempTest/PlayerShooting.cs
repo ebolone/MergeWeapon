@@ -50,16 +50,19 @@ public class PlayerShooting : MonoBehaviourPun
 
     void Shooting()
     {
-
         //Istanzia un proiettile 
         photonView.RPC("InstantiateBullet", RpcTarget.All, null);
-        timePassed = 0f;
     }
 
 
     [PunRPC]
     void InstantiateBullet()
     {
-        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        GameObject vfx;
+        if (firePoint != null)
+        {
+            vfx = Instantiate(effectToSpawn, firePoint.transform.position, firePoint.rotation);
+            vfx.transform.localRotation = this.transform.rotation;
+        }
     }
 }
