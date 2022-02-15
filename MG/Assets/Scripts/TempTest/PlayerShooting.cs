@@ -12,8 +12,7 @@ public class PlayerShooting : MonoBehaviourPun
     public List<GameObject> vfx = new List<GameObject>();
     public GameObject effectToSpawn;
 
-    float fireRate = 0.3f;
-    float timePassed = 0f;
+    float timeToFire = 0f;
 
     public PlayerInput playerInput;
     private CharacterController controller;
@@ -43,8 +42,14 @@ public class PlayerShooting : MonoBehaviourPun
 
         timePassed += Time.deltaTime;
         if (photonView.IsMine && shooting && timePassed >= fireRate)
-        {    
-            Shooting();   
+        {
+            timeToFire = Time.time + 1 / effectToSpawn.GetComponent<ProjectileMove>().fireRate;
+            for (int i = 0; i < effectToSpawn.GetComponent<ProjectileMove>().numeroColpi; i++)
+            {
+
+                Shooting();
+
+            }
         }
     }
 
