@@ -13,7 +13,7 @@ public class ProjectileMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Vector3 dir = transform.forward + new Vector3(Random.Range(-maxSpread, maxSpread), Random.Range(-maxSpread, maxSpread), Random.Range(-maxSpread, maxSpread));
+        Vector3 dir = transform.forward + new Vector3(Random.Range(-maxSpread, maxSpread), 0, Random.Range(-maxSpread, maxSpread));
         this.GetComponent<Rigidbody>().AddForce(dir * speed);
 
     }
