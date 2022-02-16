@@ -1884,6 +1884,7 @@ GameObject:
   - component: {fileID: 6631280382911255063}
   - component: {fileID: 6903058486983729317}
   - component: {fileID: 4526358181793395308}
+  - component: {fileID: 4534934695723875768}
   m_Layer: 0
   m_Name: PolyartCharacter
   m_TagString: Player
@@ -2165,6 +2166,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.2, y: 2, z: 0.38}
   m_Center: {x: 0, y: 1.02, z: 0}
+--- !u!114 &4534934695723875768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1465579406773182300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52ba304a2aeabe94daae6051c70d61e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalKills: 0
+  totalDeaths: 0
 --- !u!1 &1465579406773182302
 GameObject:
   m_ObjectHideFlags: 0
@@ -3384,6 +3399,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb7b25bde5bdedb4a911f5754439e0ac, type: 3}
+--- !u!224 &2541768814601068440 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2027585242671963840, guid: cb7b25bde5bdedb4a911f5754439e0ac, type: 3}
+  m_PrefabInstance: {fileID: 4568131390771495256}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1401277739095150863 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3177032122209849431, guid: cb7b25bde5bdedb4a911f5754439e0ac, type: 3}
@@ -3406,11 +3426,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &2541768814601068440 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 2027585242671963840, guid: cb7b25bde5bdedb4a911f5754439e0ac, type: 3}
-  m_PrefabInstance: {fileID: 4568131390771495256}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4581129999034601342
 PrefabInstance:
   m_ObjectHideFlags: 0
