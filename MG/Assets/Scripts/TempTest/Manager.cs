@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 using Photon.Pun;
 using Photon.Realtime;
 using ExitGames.Client.Photon;
-
+/*
 {
     public class PlayerInfo
     {
@@ -636,3 +636,4 @@ using ExitGames.Client.Photon;
         #endregion
     }
 }
+*/
