@@ -14,6 +14,7 @@ public class PlayerShooting : MonoBehaviourPun
     private GameObject effectToSpawnSecondario;
 
     float timeToFire = 0f;
+    float timeToFire2 = 0f;
 
     private PlayerInput playerInput;
     private CharacterController controller;
@@ -55,9 +56,9 @@ public class PlayerShooting : MonoBehaviourPun
 
             }
         }
-        if (photonView.IsMine && shooting2 && Time.time >= timeToFire)
+        if (photonView.IsMine && shooting2 && Time.time >= timeToFire2)
         {
-            timeToFire = Time.time + 1 / effectToSpawnSecondario.GetComponent<ProjectileMove>().fireRate;
+            timeToFire2 = Time.time + 1 / effectToSpawnSecondario.GetComponent<ProjectileMove>().fireRate;
             for (int i = 0; i < effectToSpawnSecondario.GetComponent<ProjectileMove>().numeroColpi; i++)
             {
 
