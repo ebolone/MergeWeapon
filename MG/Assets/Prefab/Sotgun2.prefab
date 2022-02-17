@@ -148,8 +148,8 @@ GameObject:
   m_Component:
   - component: {fileID: 589001298038792958}
   - component: {fileID: 6882927247563766397}
-  - component: {fileID: 3011087066216144686}
   - component: {fileID: 5686632600663230282}
+  - component: {fileID: 5005390143618690462}
   m_Layer: 3
   m_Name: Sotgun2
   m_TagString: Untagged
@@ -191,19 +191,6 @@ MonoBehaviour:
   tempoTraColpiConsecutivi: 0
   hitPrefab: {fileID: 0}
   maxSpread: 0.2
---- !u!65 &3011087066216144686
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2928569519841085962}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.5, z: 0.5}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &5686632600663230282
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -220,6 +207,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!135 &5005390143618690462
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2928569519841085962}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.15
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5125581229676535901
 GameObject:
   m_ObjectHideFlags: 0
