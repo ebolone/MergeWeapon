@@ -6,14 +6,15 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviourPun
 {
-    private Player shooter;
+    public string viewID;
+    public Player shooter;
     public float bulletDamage;
     public float bulletSpeed;
     private Rigidbody rb;
 
     private void Awake()
     {
-        shooter = PhotonNetwork.LocalPlayer;
+
     }
 
     void Start() 
@@ -42,6 +43,6 @@ public class Bullet : MonoBehaviourPun
 
     public void setShooter(Player shooter)
     {
-        this.shooter = shooter
+        this.shooter = shooter;
     }
 }

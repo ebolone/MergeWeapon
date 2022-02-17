@@ -33,6 +33,7 @@ public class PlayerShooting : MonoBehaviourPun
     {
         animator.SetBool("isShooting", true);
         //Istanzia un proiettile 
+        bulletPrefab.GetComponent<Bullet>().viewID = PhotonNetwork.LocalPlayer.UserId;
         photonView.RPC("InstantiateBullet", RpcTarget.All, null);
         timePassed = 0f;
     }
