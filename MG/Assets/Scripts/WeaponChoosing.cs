@@ -56,7 +56,9 @@ public class WeaponChoosing : MonoBehaviourPunCallbacks
     public override void OnPlayerPropertiesUpdate(Player targetPlayer, Hashtable changedProps)
     {
         if (!player_PV.IsMine && targetPlayer == player_PV.Owner)
+        {
             SelectWeaponPrimaria((int)changedProps["item index1"]);
-            SelectWeaponSecondaria((int)changedProps["item idex2"]);
+            SelectWeaponSecondaria((int)changedProps["item index2"]);
+        }
     }
 }
