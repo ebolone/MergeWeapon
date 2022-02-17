@@ -81,7 +81,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4303704472468668040
 Transform:
   m_ObjectHideFlags: 0
@@ -401,8 +401,8 @@ GameObject:
   - component: {fileID: 2027006925972600729}
   - component: {fileID: 2027006925972600730}
   - component: {fileID: 7020437418286652455}
-  - component: {fileID: 2597626949319804674}
   - component: {fileID: 7765539112163979140}
+  - component: {fileID: 2597626949319804674}
   m_Layer: 0
   m_Name: Soldier
   m_TagString: Player
@@ -622,25 +622,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firePoint: {fileID: 2027006925236156056}
-  vfx:
-  - {fileID: 8106093315786391921, guid: dfd50982dc04ff24b9daa546fc06ae0e, type: 3}
-  - {fileID: 7761537806033531109, guid: 0d0361b45db40be459d3c2d7deb1803f, type: 3}
-  - {fileID: 8419923045877596740, guid: 3ccb9347f1766cc4687f2dc44c9ce376, type: 3}
-  - {fileID: 1152081771048069245, guid: d1c820b081ee57444856082ad0c95622, type: 3}
-  effectToSpawn: {fileID: 8106093315786391921, guid: dfd50982dc04ff24b9daa546fc06ae0e, type: 3}
---- !u!65 &2597626949319804674
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1215982751842123522}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1.7, z: 1}
-  m_Center: {x: 0, y: 1.1, z: 0}
+  bulletPrefab: {fileID: 2361786583545568840, guid: 7599c3a524f28bb45820cfcc8fe778a6, type: 3}
 --- !u!114 &7765539112163979140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -686,6 +668,19 @@ MonoBehaviour:
   fill: {fileID: 941726797686221864}
   maxHp: 100
   destroyEffect: {fileID: 4591413736821988705, guid: 298e3b4666b11514290f916418163f42, type: 3}
+--- !u!65 &2597626949319804674
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215982751842123522}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.7, z: 1}
+  m_Center: {x: 0, y: 1.1, z: 0}
 --- !u!1 &1319289667831999270
 GameObject:
   m_ObjectHideFlags: 0

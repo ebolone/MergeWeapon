@@ -15,8 +15,7 @@ public class WeaponChoosing : MonoBehaviourPunCallbacks
     {
         if (player_PV.IsMine)
         {
-            SelectWeaponPrimaria(selectedArma1);
-            SelectWeaponSecondaria(selectedArma2);
+            SelectWeapon(selectedArma1, selectedArma2);
             Hashtable hash1 = new Hashtable();
             hash1.Add("item index1", selectedArma1);
             hash1.Add("item index2", selectedArma2);
@@ -31,32 +30,19 @@ public class WeaponChoosing : MonoBehaviourPunCallbacks
     {
         
     }
-    void SelectWeaponPrimaria(int index1)
+    void SelectWeapon(int index1, int index2)
     {
         int i = 0;
-        foreach(Transform weapon in transform.GetChild(0))
+        foreach(Transform weapon in transform)
         {
-            if (i == index1)
+            if (i == index1 || i == index2)
                 weapon.gameObject.SetActive(true);
-            else weapon.gameObject.SetActive(false);
-            i++;
-        }
-    }
-    void SelectWeaponSecondaria(int index2)
-    {
-        int i = 0;
-        foreach (Transform weapon in transform.GetChild(1))
-        {
-            if (i == index2)
-                weapon.gameObject.SetActive(true);
-            else weapon.gameObject.SetActive(false);
             i++;
         }
     }
     public override void OnPlayerPropertiesUpdate(Player targetPlayer, Hashtable changedProps)
     {
         if (!player_PV.IsMine && targetPlayer == player_PV.Owner)
-            SelectWeaponPrimaria((int)changedProps["item index1"]);
-            SelectWeaponSecondaria((int)changedProps["item idex2"]);
+            SelectWeapon((int)changedProps["item index1"], (int)changedProps["item index2"]);
     }
 }
