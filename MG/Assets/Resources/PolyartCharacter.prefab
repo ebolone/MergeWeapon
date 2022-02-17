@@ -1876,7 +1876,6 @@ GameObject:
   - component: {fileID: 1465579406763666654}
   - component: {fileID: 2893227683231674729}
   - component: {fileID: 3494491904478310859}
-  - component: {fileID: 8071782799938630637}
   - component: {fileID: 2066496853032103575}
   - component: {fileID: 4294011172171333082}
   - component: {fileID: 8997290928868210636}
@@ -1884,6 +1883,7 @@ GameObject:
   - component: {fileID: 6631280382911255063}
   - component: {fileID: 6903058486983729317}
   - component: {fileID: 4526358181793395308}
+  - component: {fileID: 8071782799938630637}
   m_Layer: 0
   m_Name: PolyartCharacter
   m_TagString: Player
@@ -1978,36 +1978,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &8071782799938630637
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1465579406773182300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShowLayerWeightsInspector: 1
-  ShowParameterInspector: 1
-  m_SynchronizeParameters:
-  - Type: 4
-    SynchronizeType: 2
-    Name: isWalking
-  - Type: 4
-    SynchronizeType: 2
-    Name: isShooting
-  - Type: 4
-    SynchronizeType: 2
-    Name: isDead
-  - Type: 4
-    SynchronizeType: 2
-    Name: isRealoading
-  m_SynchronizeLayers:
-  - SynchronizeType: 2
-    LayerIndex: 0
 --- !u!114 &2066496853032103575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2060,8 +2030,8 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
-  - {fileID: 8071782799938630637}
   - {fileID: 2066496853032103575}
+  - {fileID: 8071782799938630637}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -2174,6 +2144,36 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.2, y: 2, z: 0.38}
   m_Center: {x: 0, y: 1.02, z: 0}
+--- !u!114 &8071782799938630637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1465579406773182300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 2
+    Name: isWalking
+  - Type: 4
+    SynchronizeType: 2
+    Name: isShooting
+  - Type: 4
+    SynchronizeType: 2
+    Name: isDead
+  - Type: 4
+    SynchronizeType: 2
+    Name: isRealoading
+  m_SynchronizeLayers:
+  - SynchronizeType: 2
+    LayerIndex: 0
 --- !u!1 &1465579406773182302
 GameObject:
   m_ObjectHideFlags: 0
