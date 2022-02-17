@@ -17,7 +17,6 @@ public class PlayerShooting : MonoBehaviourPun
     float timeToFire2 = 0f;
 
     private PlayerInput playerInput;
-    private CharacterController controller;
     bool shooting;
     bool shooting2;
     bool look;
@@ -25,7 +24,6 @@ public class PlayerShooting : MonoBehaviourPun
     // Use this for initialization
     void Start()
     {
-        controller = gameObject.AddComponent<CharacterController>();
         playerInput = gameObject.GetComponent<PlayerInput>();
         effectToSpawnPrimario = vfx1[WeaponChoosing.selectedArma1];
         effectToSpawnSecondario = vfx2[WeaponChoosing.selectedArma2];
@@ -72,7 +70,6 @@ public class PlayerShooting : MonoBehaviourPun
     {
         //Istanzia un proiettile 
         photonView.RPC("InstantiateBullet", RpcTarget.All, null);
-        Debug.Log("entra nello shooting?");
     }
 
 
@@ -82,13 +79,12 @@ public class PlayerShooting : MonoBehaviourPun
         GameObject vfx;
         if (shooting)
         {
-            Debug.Log("spara?");
             vfx = Instantiate(effectToSpawnPrimario, firePoint.transform.position, firePoint.rotation);
             vfx.transform.localRotation = this.transform.rotation;
         }
         else if (shooting2)
         {
-            Debug.Log("spara?");
+            
             vfx = Instantiate(effectToSpawnSecondario, firePoint.transform.position, firePoint.rotation);
             vfx.transform.localRotation = this.transform.rotation;
         }
