@@ -50,7 +50,7 @@ public class PlayerShooting : MonoBehaviourPun
             {
 
 
-                Shooting();
+                Shooting1();
 
             }
         }
@@ -60,16 +60,20 @@ public class PlayerShooting : MonoBehaviourPun
             for (int i = 0; i < effectToSpawnSecondario.GetComponent<ProjectileMove>().numeroColpi; i++)
             {
 
-                Shooting();
+                Shooting2();
 
             }
         }
     }
 
-    void Shooting()
+    void Shooting1()
     {
         //Istanzia un proiettile 
         photonView.RPC("InstantiateBullet", RpcTarget.All, null);
+    }
+    void Shooting2()
+    {
+        photonView.RPC("InstatiateBullet2", RpcTarget.All);
     }
 
 
@@ -77,16 +81,14 @@ public class PlayerShooting : MonoBehaviourPun
     void InstantiateBullet()
     {
         GameObject vfx;
-        if (shooting)
-        {
-            vfx = Instantiate(effectToSpawnPrimario, firePoint.transform.position, firePoint.rotation);
-            vfx.transform.localRotation = this.transform.rotation;
-        }
-        else if (shooting2)
-        {
-            
-            vfx = Instantiate(effectToSpawnSecondario, firePoint.transform.position, firePoint.rotation);
-            vfx.transform.localRotation = this.transform.rotation;
-        }
+        vfx = Instantiate(effectToSpawnPrimario, firePoint.transform.position, firePoint.rotation);
+        vfx.transform.localRotation = this.transform.rotation;
+    }
+    [PunRPC]
+    void InstatiateBullet2()
+    {
+        GameObject vfx;
+        vfx = Instantiate(effectToSpawnSecondario, firePoint.transform.position, firePoint.rotation);
+        vfx.transform.localRotation = this.transform.rotation;
     }
 }
