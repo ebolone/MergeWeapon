@@ -39,4 +39,9 @@ public class Bullet : MonoBehaviourPun
         }
         Destroy(gameObject);
     }
+
+    public void setShooter(Player shooter)
+    {
+        this.shooter = shooter
+    }
 }
