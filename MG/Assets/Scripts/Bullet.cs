@@ -1,15 +1,20 @@
 using Photon.Pun;
+using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Bullet : MonoBehaviourPun
 {
-
+    private Player shooter;
     public float bulletDamage;
     public float bulletSpeed;
     private Rigidbody rb;
 
+    private void Awake()
+    {
+        shooter = PhotonNetwork.LocalPlayer;
+    }
 
     void Start() 
     { 
@@ -30,7 +35,7 @@ public class Bullet : MonoBehaviourPun
     {
         if (col.collider.tag == "Player" && PhotonNetwork.IsMasterClient)
         {
-            col.collider.gameObject.GetComponent<PlayerDamage>().GetDamage(bulletDamage);
+            col.collider.gameObject.GetComponent<PlayerDamage>().GetDamage(bulletDamage,shooter);
         }
         Destroy(gameObject);
     }

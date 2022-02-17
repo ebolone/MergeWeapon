@@ -1,4 +1,5 @@
 using Photon.Pun;
+using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -34,16 +35,20 @@ public class PlayerDamage : MonoBehaviourPun
 
     }
 
-    public void GetDamage(float amountOfDamage)
+    public void GetDamage(float amountOfDamage, Player shooter)
     {
-        photonView.RPC("ApplyDamage", RpcTarget.AllViaServer, amountOfDamage);
+        photonView.RPC("ApplyDamage", RpcTarget.AllViaServer, amountOfDamage,shooter);
     }
 
     [PunRPC]
-    public void ApplyDamage(float amountOfDamage)
+    public void ApplyDamage(float amountOfDamage, Player shooter)
     {
         currentHp -= amountOfDamage;
         setHealth(currentHp);
+        if (currentHp <= 0)
+        {
+            Debug.Log(shooter.NickName + "has slained an enemy");
+        }
     }
 
     public void Die()
