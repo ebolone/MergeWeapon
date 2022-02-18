@@ -47,7 +47,7 @@ public class PlayerDamage : MonoBehaviourPun
         setHealth(currentHp);
         if (currentHp <= 0)
         {
-            Debug.Log(shooter.NickName + "has slained an enemy");
+            Debug.Log(shooter.NickName + " has slained an enemy");
         }
     }
 

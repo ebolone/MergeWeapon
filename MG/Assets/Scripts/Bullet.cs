@@ -6,15 +6,14 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviourPun
 {
-    public string viewID;
-    public Player shooter;
+    public Player owner { get; private set; }
     public float bulletDamage;
     public float bulletSpeed;
     private Rigidbody rb;
 
     private void Awake()
     {
-
+        
     }
 
     void Start() 
@@ -32,17 +31,22 @@ public class Bullet : MonoBehaviourPun
         transform.position += transform.right * Time.deltaTime * bulletSpeed;
     }
 
+    public void InitializeBullet(Player owner)
+    {
+        this.owner = owner;
+    }
+
     private void OnCollisionEnter(Collision col)
     {
         if (col.collider.tag == "Player" && PhotonNetwork.IsMasterClient)
         {
-            col.collider.gameObject.GetComponent<PlayerDamage>().GetDamage(bulletDamage,shooter);
+            col.collider.gameObject.GetComponent<PlayerDamage>().GetDamage(bulletDamage,owner);
         }
         Destroy(gameObject);
     }
 
     public void setShooter(Player shooter)
     {
-        this.shooter = shooter;
+        this.owner = shooter;
     }
 }
