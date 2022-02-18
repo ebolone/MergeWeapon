@@ -1,7 +1,9 @@
 using Photon.Pun;
+using Photon.Pun.UtilityScripts;
 using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
+using Hashtable = ExitGames.Client.Photon.Hashtable;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -47,7 +49,9 @@ public class PlayerDamage : MonoBehaviourPun
         setHealth(currentHp);
         if (currentHp <= 0)
         {
+            ScoreExtensions.AddScore(shooter, 1);
             Debug.Log(shooter.NickName + " has slained an enemy");
+            Debug.Log(shooter.NickName + " ha raggiunto le " + ScoreExtensions.GetScore(shooter) + " uccisioni");
         }
     }
 
