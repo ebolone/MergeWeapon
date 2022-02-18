@@ -1,9 +1,6 @@
 using Photon.Pun;
 using Photon.Pun.UtilityScripts;
 using Photon.Realtime;
-using System.Collections;
-using System.Collections.Generic;
-using Hashtable = ExitGames.Client.Photon.Hashtable;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,6 +14,8 @@ public class PlayerDamage : MonoBehaviourPun
     private float currentHp;
     public GameObject destroyEffect;
     public Animator animator;
+
+    int numMorti = 0;
 
 
     private void Start()
@@ -34,7 +33,7 @@ public class PlayerDamage : MonoBehaviourPun
             NetworkManager.netManager.PlayerIsDead();
             Invoke("DestroyChar", 1.2f);
         }
-
+        numMorti = Scores.GetDeath(photonView.Owner);
     }
 
     public void GetDamage(float amountOfDamage, Player shooter)
@@ -49,9 +48,10 @@ public class PlayerDamage : MonoBehaviourPun
         setHealth(currentHp);
         if (currentHp <= 0)
         {
-            ScoreExtensions.AddScore(shooter, 1);
-            Debug.Log(shooter.NickName + " has slained an enemy");
-            Debug.Log(shooter.NickName + " ha raggiunto le " + ScoreExtensions.GetScore(shooter) + " uccisioni");
+            Scores.AddKill(shooter,1);
+            Scores.AddDeath(photonView.Owner, 1);
+            Debug.Log(shooter.NickName + " ha effettuato un uccisione. Ora ha un totale di " + Scores.GetKills(shooter) + " uccisioni");
+            Debug.Log(photonView.Owner.NickName + " é stato ucciso, ora ha un totale di " + Scores.GetDeath(photonView.Owner) + " morti");
         }
     }
 
