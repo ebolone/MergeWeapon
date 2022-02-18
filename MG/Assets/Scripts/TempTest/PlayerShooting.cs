@@ -46,34 +46,40 @@ public class PlayerShooting : MonoBehaviourPun
         if (photonView.IsMine && shooting && Time.time >= timeToFire)
         {
             timeToFire = Time.time + 1 / effectToSpawnPrimario.GetComponent<ProjectileMove>().fireRate;
-            for (int i = 0; i < effectToSpawnPrimario.GetComponent<ProjectileMove>().numeroColpi; i++)
-            {
+            StartCoroutine(Shooting1());
 
-
-                Shooting1();
-
-            }
+            
         }
         if (photonView.IsMine && shooting2 && Time.time >= timeToFire2)
         {
             timeToFire2 = Time.time + 1 / effectToSpawnSecondario.GetComponent<ProjectileMove>().fireRate;
-            for (int i = 0; i < effectToSpawnSecondario.GetComponent<ProjectileMove>().numeroColpi; i++)
-            {
+            StartCoroutine( Shooting2());
 
-                Shooting2();
-
-            }
+            
         }
     }
 
-    void Shooting1()
+    IEnumerator Shooting1()
     {
-        //Istanzia un proiettile 
-        photonView.RPC("InstantiateBullet", RpcTarget.All, null);
+        int i = 0;
+        while (i < effectToSpawnPrimario.GetComponent<ProjectileMove>().numeroColpi)
+        {
+            photonView.RPC("InstantiateBullet", RpcTarget.All, null);
+            yield return new WaitForSeconds(effectToSpawnPrimario.GetComponent<ProjectileMove>().tempoTraColpiConsecutivi);
+            i++;
+        }
+       
     }
-    void Shooting2()
+    IEnumerator Shooting2()
     {
-        photonView.RPC("InstatiateBullet2", RpcTarget.All);
+        int i = 0;
+        while (i < effectToSpawnSecondario.GetComponent<ProjectileMove>().numeroColpi)
+        {
+            photonView.RPC("InstatiateBullet2", RpcTarget.All);
+            if(effectToSpawnSecondario.GetComponent<ProjectileMove>().tempoTraColpiConsecutivi != 0 )
+                yield return new WaitForSeconds(effectToSpawnSecondario.GetComponent<ProjectileMove>().tempoTraColpiConsecutivi);
+            i++;
+        }
     }
 
 

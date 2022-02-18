@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 502548811}
   - component: {fileID: 502548809}
   - component: {fileID: 502548810}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4816,7 +4816,7 @@ GameObject:
   - component: {fileID: 548476700}
   - component: {fileID: 548476702}
   - component: {fileID: 548476701}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9679,7 +9679,7 @@ GameObject:
   - component: {fileID: 8749911779575055136}
   - component: {fileID: 8452922641141891886}
   - component: {fileID: 1155684081268040333}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9714,8 +9714,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 298e4f610fee5534b9976750c76a55f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  speed: 1000
   fireRate: 4
+  numeroColpi: 1
+  tempoTraColpiConsecutivi: 0
+  hitPrefab: {fileID: 6060466460071748040, guid: 3df027f846565e84caf82794cc8bc9be, type: 3}
+  maxSpread: 0
 --- !u!65 &8452922641141891886
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9755,7 +9759,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3805581699983841267}
   - component: {fileID: 3184671955687311436}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
