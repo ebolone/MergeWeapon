@@ -31,7 +31,7 @@ public class PlayerDamage : MonoBehaviourPun
         {
             animator.SetTrigger("isDead");
             NetworkManager.netManager.PlayerIsDead();
-            Invoke("DestroyChar", 1.2f);
+            Invoke("DestroyChar", 1.1f);
         }
         numMorti = Scores.GetDeaths(photonView.Owner);
     }
@@ -48,6 +48,7 @@ public class PlayerDamage : MonoBehaviourPun
         setHealth(currentHp);
         if (currentHp <= 0)
         {
+            gameObject.GetComponent<BoxCollider>().enabled = false;
             Scores.AddKill(shooter,1);
             Scores.AddDeath(photonView.Owner, 1);
             Debug.Log(shooter.NickName + " ha effettuato un uccisione. Ora ha un totale di " + Scores.GetKills(shooter) + " uccisioni");
