@@ -15,8 +15,6 @@ public class PlayerDamage : MonoBehaviourPun
     public GameObject destroyEffect;
     public Animator animator;
 
-    int numMorti = 0;
-
 
     private void Start()
     {
@@ -33,7 +31,6 @@ public class PlayerDamage : MonoBehaviourPun
             NetworkManager.netManager.PlayerIsDead();
             Invoke("DestroyChar", 1.1f);
         }
-        numMorti = Scores.GetDeaths(photonView.Owner);
     }
 
     public void GetDamage(float amountOfDamage, Player shooter)
