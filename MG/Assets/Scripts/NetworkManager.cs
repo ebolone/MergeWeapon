@@ -41,6 +41,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     }
     void RespawnPlayer()
     {
+        
         var position = new Vector3(Random.Range(-5.0f, 5.0f), 0, Random.Range(-5.0f, 5.0f));
         PhotonNetwork.Instantiate(playerPreFabs.name, position, Quaternion.identity);
 

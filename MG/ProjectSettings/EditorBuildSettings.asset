@@ -51,7 +51,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Soldato.unity
     guid: 9321b673e6e4e894e8720acdd5cd341c
+  - enabled: 1
+    path: Assets/Scenes/BS.unity
+    guid: f674359eadc5f6b44a81b9e319e66ca8
   m_configObjects: {}
