@@ -501,7 +501,7 @@ MonoBehaviour:
   scoreboard: {fileID: 779336566}
   canvas: {fileID: 82057611}
   isOver: 0
-  killsToWin: 5
+  killsToWin: 3
 --- !u!1 &170184612
 GameObject:
   m_ObjectHideFlags: 0

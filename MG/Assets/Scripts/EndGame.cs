@@ -50,7 +50,7 @@ public class EndGame : MonoBehaviour
 
     private IEnumerator EndOfGame(string winner, int score)
     {
-        float timer = 5.0f;
+        float timer = 10.0f;
 
         while (timer > 0.0f)
         {
@@ -62,6 +62,7 @@ public class EndGame : MonoBehaviour
         }
 
         PhotonNetwork.LeaveRoom();
+        PhotonNetwork.LoadLevel(0);
     }
 
     Player[] sortPlayers(Player[] list)
