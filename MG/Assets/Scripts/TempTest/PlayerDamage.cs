@@ -33,7 +33,7 @@ public class PlayerDamage : MonoBehaviourPun
             NetworkManager.netManager.PlayerIsDead();
             Invoke("DestroyChar", 1.2f);
         }
-        numMorti = Scores.GetDeath(photonView.Owner);
+        numMorti = Scores.GetDeaths(photonView.Owner);
     }
 
     public void GetDamage(float amountOfDamage, Player shooter)
@@ -51,7 +51,7 @@ public class PlayerDamage : MonoBehaviourPun
             Scores.AddKill(shooter,1);
             Scores.AddDeath(photonView.Owner, 1);
             Debug.Log(shooter.NickName + " ha effettuato un uccisione. Ora ha un totale di " + Scores.GetKills(shooter) + " uccisioni");
-            Debug.Log(photonView.Owner.NickName + " é stato ucciso, ora ha un totale di " + Scores.GetDeath(photonView.Owner) + " morti");
+            Debug.Log(photonView.Owner.NickName + " é stato ucciso, ora ha un totale di " + Scores.GetDeaths(photonView.Owner) + " morti");
         }
     }
 

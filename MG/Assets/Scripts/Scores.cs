@@ -37,7 +37,7 @@ public class Scores : MonoBehaviour
 
     public static void AddDeath(Player player, int scoreToAddToCurrent)
     {
-        int current = GetDeath(player);
+        int current = GetDeaths(player);
         if (current == -1)
         {
             current = 0;
@@ -50,7 +50,7 @@ public class Scores : MonoBehaviour
         player.SetCustomProperties(score);  // this locally sets the score and will sync it in-game asap.
     }
 
-    public static int GetDeath(Player player)
+    public static int GetDeaths(Player player)
     {
         object score;
         if (player.CustomProperties.TryGetValue(PlayerDeathScore, out score))
