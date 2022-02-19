@@ -14,6 +14,8 @@ public class ScoreboardItem : MonoBehaviour
     public void Initialize(Player player)
     {
         usernameText.text = player.NickName;
+        killsText.SetText(Scores.GetKills(player).ToString());
+        deathsText.SetText(Scores.GetDeaths(player).ToString());
     }
 
     public void UpdateScore(Player player)

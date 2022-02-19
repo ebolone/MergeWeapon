@@ -14,10 +14,13 @@ public class Scoreboard : MonoBehaviourPunCallbacks
 
     private void Start()
     {
-        foreach (Player player in PhotonNetwork.PlayerList)
-        {
-            AddScoreboardItem(player);
-        }
+
+    }
+
+
+    public void AddPlayer(Player player)
+    {
+        AddScoreboardItem(player);
     }
 
     public override void OnPlayerEnteredRoom(Player newPlayer)
@@ -45,9 +48,9 @@ public class Scoreboard : MonoBehaviourPunCallbacks
 
     private void Update()
     {
-        foreach (Player player in PhotonNetwork.PlayerList)
-        {
-            scoreboardItems[player].UpdateScore(player);
-        }
+       //foreach (Player player in PhotonNetwork.PlayerList)
+       //{
+       //    scoreboardItems[player].UpdateScore(player);
+       //}
     }
 }
