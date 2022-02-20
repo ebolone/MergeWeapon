@@ -42,9 +42,9 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     }
     void RespawnPlayer()
     {
-        
-        do{position = new Vector3(Random.Range(-60.0f, 60.0f), 0, Random.Range(-60.0f, 60.0f));
-        } while (Vector3.Distance(position, transform.position)<55.0f);
+        Vector3 zero =new Vector3(0f,0f,0f);
+        do{position = new Vector3(Random.Range(-58.0f, 58.0f), 0, Random.Range(-58.0f, 58.0f));
+        } while (Vector3.Distance(position, zero)<55.0f);
         PhotonNetwork.Instantiate(playerPreFabs.name, position, Quaternion.identity);
 
     }
