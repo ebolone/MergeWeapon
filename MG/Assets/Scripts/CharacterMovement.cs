@@ -17,12 +17,11 @@ public class CharacterMovement : MonoBehaviourPunCallbacks
 
 
     private CharacterController controller;
-    private Vector3 playerVelocity;
-    private float playerSpeed = 2.0f;
+    private float playerSpeed = 4.0f;
     private Animator animator;
     private PlayerInput playerInput;
 
-    private float turnSmoothTime = 0.3f;
+    private float turnSmoothTime = 0.01f;
     float turnSmoothVelocity;
 
     public Vector3 gg;

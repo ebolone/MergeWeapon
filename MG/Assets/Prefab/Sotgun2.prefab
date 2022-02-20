@@ -189,8 +189,8 @@ MonoBehaviour:
   fireRate: 0.5
   numeroColpi: 50
   tempoTraColpiConsecutivi: 0
-  hitPrefab: {fileID: 0}
-  maxSpread: 0.2
+  hitPrefab: {fileID: 6060466460071748040, guid: 3df027f846565e84caf82794cc8bc9be, type: 3}
+  maxSpread: 0.3
 --- !u!54 &5686632600663230282
 Rigidbody:
   m_ObjectHideFlags: 0

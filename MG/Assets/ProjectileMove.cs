@@ -10,9 +10,11 @@ public class ProjectileMove : MonoBehaviour
     public float tempoTraColpiConsecutivi = 0;
     public GameObject hitPrefab;
     public float maxSpread = 0;
+    public float timeToDestroy = 1f;
     // Start is called before the first frame update
     void Start()
     {
+        Destroy(gameObject, timeToDestroy);
         Vector3 dir = transform.forward + new Vector3(Random.Range(-maxSpread, maxSpread), 0, Random.Range(-maxSpread, maxSpread));
         this.GetComponent<Rigidbody>().AddForce(dir * speed);
 
@@ -35,6 +37,7 @@ public class ProjectileMove : MonoBehaviour
         if(hitPrefab != null)
         {
             var hitVFX = Instantiate(hitPrefab, pos, rot);
+            Destroy(hitVFX, 1f);
 
         }
         
