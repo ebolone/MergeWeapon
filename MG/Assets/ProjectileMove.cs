@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
+using Photon.Realtime;
 
-public class ProjectileMove : MonoBehaviour
+public class ProjectileMove : MonoBehaviourPun
 {
     public float speed;
     public float fireRate;
@@ -10,9 +12,14 @@ public class ProjectileMove : MonoBehaviour
     public float tempoTraColpiConsecutivi = 0;
     public GameObject hitPrefab;
     public float maxSpread = 0;
+    public float timeToDestroy = 0.5f;
+    public float bulletDamage;
+
+    public Player Owner { get; private set; }
     // Start is called before the first frame update
     void Start()
     {
+        Destroy(gameObject, timeToDestroy);
         Vector3 dir = transform.forward + new Vector3(Random.Range(-maxSpread, maxSpread), 0, Random.Range(-maxSpread, maxSpread));
         this.GetComponent<Rigidbody>().AddForce(dir * speed);
 
@@ -21,9 +28,7 @@ public class ProjectileMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (speed != 0)
-            //transform.position += transform.forward * (speed * Time.deltaTime) ; 
-       // else Debug.Log("no speed");
+  
         
     }
     private void OnCollisionEnter(Collision collision)
@@ -35,9 +40,14 @@ public class ProjectileMove : MonoBehaviour
         if(hitPrefab != null)
         {
             var hitVFX = Instantiate(hitPrefab, pos, rot);
+            Destroy(hitVFX, 1f);
 
         }
-        
+        if (collision.collider.tag == "Player" && PhotonNetwork.IsMasterClient)
+        {
+            collision.collider.gameObject.GetComponent<PlayerDamage>().GetDamage(bulletDamage, Owner);
+        }
+
         Destroy(gameObject);
     }
 }

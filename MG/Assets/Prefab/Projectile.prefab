@@ -9716,10 +9716,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1000
   fireRate: 4
-  numeroColpi: 1
-  tempoTraColpiConsecutivi: 0
+  numeroColpi: 20
+  tempoTraColpiConsecutivi: 0.2
   hitPrefab: {fileID: 6060466460071748040, guid: 3df027f846565e84caf82794cc8bc9be, type: 3}
-  maxSpread: 0
+  maxSpread: 0.1
+  timeToDestroy: 0.5
+  bulletDamage: 25
 --- !u!65 &8452922641141891886
 BoxCollider:
   m_ObjectHideFlags: 0

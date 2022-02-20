@@ -1,4 +1,5 @@
 using Photon.Pun;
+using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -29,21 +30,29 @@ public class PlayerDamage : MonoBehaviourPun
         {
             animator.SetTrigger("isDead");
             NetworkManager.netManager.PlayerIsDead();
-            Invoke("DestroyChar", 1.2f);
+            Invoke("DestroyChar", 1.1f);
         }
 
     }
 
-    public void GetDamage(float amountOfDamage)
+    public void GetDamage(float amountOfDamage,Player shooter)
     {
-        photonView.RPC("ApplyDamage", RpcTarget.AllViaServer, amountOfDamage);
+        photonView.RPC("ApplyDamage", RpcTarget.AllViaServer, amountOfDamage, shooter);
     }
 
     [PunRPC]
-    public void ApplyDamage(float amountOfDamage)
+    public void ApplyDamage(float amountOfDamage, Player shooter)
     {
         currentHp -= amountOfDamage;
         setHealth(currentHp);
+        if (currentHp <= 0)
+        {
+            gameObject.GetComponent<BoxCollider>().enabled = false;
+            Scores.AddKill(shooter, 1);
+            Scores.AddDeath(photonView.Owner, 1);
+            Debug.Log(shooter.NickName + " ha effettuato un uccisione. Ora ha un totale di " + Scores.GetKills(shooter) + " uccisioni");
+            Debug.Log(photonView.Owner.NickName + " é stato ucciso, ora ha un totale di " + Scores.GetDeaths(photonView.Owner) + " morti");
+        }
     }
 
     public void Die()

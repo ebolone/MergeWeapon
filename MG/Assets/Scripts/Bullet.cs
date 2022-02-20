@@ -26,12 +26,5 @@ public class Bullet : MonoBehaviourPun
         transform.position += transform.right * Time.deltaTime * bulletSpeed;
     }
 
-    private void OnCollisionEnter(Collision col)
-    {
-        if (col.collider.tag == "Player" && PhotonNetwork.IsMasterClient)
-        {
-            col.collider.gameObject.GetComponent<PlayerDamage>().GetDamage(bulletDamage);
-        }
-        Destroy(gameObject);
-    }
+  
 }
