@@ -35,6 +35,14 @@ public class Scores : MonoBehaviour
         return 0;
     }
 
+    public static void SetKills(Player player, int newScore)
+    {
+        Hashtable score = new Hashtable();  // using PUN's implementation of Hashtable
+        score[PlayerKillScore] = newScore;
+
+        player.SetCustomProperties(score);  // this locally sets the score and will sync it in-game asap.
+    }
+
     public static void AddDeath(Player player, int scoreToAddToCurrent)
     {
         int current = GetDeaths(player);
@@ -61,4 +69,11 @@ public class Scores : MonoBehaviour
         return 0;
     }
 
+    public static void SetDeaths(Player player, int newScore)
+    {
+        Hashtable score = new Hashtable();  // using PUN's implementation of Hashtable
+        score[PlayerDeathScore] = newScore;
+
+        player.SetCustomProperties(score);  // this locally sets the score and will sync it in-game asap.
+    }
 }

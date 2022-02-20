@@ -45,6 +45,11 @@ public class EndGame : MonoBehaviour
             int score = Scores.GetKills(this.winner);
 
             StartCoroutine(EndOfGame(winner, score));
+            foreach (Player player in players)
+            {
+                Scores.SetKills(player, 0);
+                Scores.SetDeaths(player, 0);
+            }
         }
     }
 
