@@ -12,6 +12,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     bool isDead = false;
     float spawnDelay = 3f;
     float timeNeeded;
+    Vector3 position;
 
     // Start is called before the first frame update
     void Start()
@@ -41,7 +42,9 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     }
     void RespawnPlayer()
     {
-        var position = new Vector3(Random.Range(-5.0f, 5.0f), 0, Random.Range(-5.0f, 5.0f));
+        
+        do{position = new Vector3(Random.Range(-60.0f, 60.0f), 0, Random.Range(-60.0f, 60.0f));
+        } while (Vector3.Distance(position, transform.position)<55.0f);
         PhotonNetwork.Instantiate(playerPreFabs.name, position, Quaternion.identity);
 
     }
