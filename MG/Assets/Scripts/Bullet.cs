@@ -10,6 +10,7 @@ public class Bullet : MonoBehaviourPun
     public float bulletDamage;
     public float bulletSpeed;
     private Rigidbody rb;
+    public float timeToDestroy;
 
     private void Awake()
     {
@@ -17,8 +18,9 @@ public class Bullet : MonoBehaviourPun
     }
 
     void Start() 
-    { 
-     rb = gameObject.GetComponent<Rigidbody>();
+    {
+        Destroy(gameObject, timeToDestroy);
+        rb = gameObject.GetComponent<Rigidbody>();
     }
 
     public void setBulletDamage(float val)
