@@ -13383,7 +13383,7 @@ MonoBehaviour:
   scoreboard: {fileID: 704000195}
   canvas: {fileID: 1194271418}
   isOver: 0
-  killsToWin: 0
+  killsToWin: 2
 --- !u!1001 &1188034871
 PrefabInstance:
   m_ObjectHideFlags: 0
