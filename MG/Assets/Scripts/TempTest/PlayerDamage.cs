@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class PlayerDamage : MonoBehaviourPun
 {
     public Slider slider;
@@ -15,6 +16,7 @@ public class PlayerDamage : MonoBehaviourPun
     private float currentHp;
     public GameObject destroyEffect;
     public Animator animator;
+    private bool isDead;
 
 
     private void Start()
@@ -22,6 +24,7 @@ public class PlayerDamage : MonoBehaviourPun
         animator.ResetTrigger("isDead");
         currentHp = maxHp;
         setMaxHealth(maxHp);
+        isDead = false;
     }
 
     private void Update()
@@ -45,9 +48,11 @@ public class PlayerDamage : MonoBehaviourPun
     {
         currentHp -= amountOfDamage;
         setHealth(currentHp);
-        if (currentHp <= 0)
+        if (currentHp <= 0 && !isDead)
         {
             gameObject.GetComponent<BoxCollider>().enabled = false;
+            gameObject.GetComponent<CharacterMovement>().enabled = false;
+            gameObject.GetComponent<PlayerShooting>().enabled = false;
             Scores.AddKill(shooter, 1);
             Scores.AddDeath(photonView.Owner, 1);
             Debug.Log(shooter.NickName + " ha effettuato un uccisione. Ora ha un totale di " + Scores.GetKills(shooter) + " uccisioni");

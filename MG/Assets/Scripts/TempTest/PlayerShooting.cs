@@ -87,14 +87,16 @@ public class PlayerShooting : MonoBehaviourPun
     void InstantiateBullet()
     {
         GameObject vfx;
-        vfx = Instantiate(effectToSpawnPrimario, firePoint.transform.position, firePoint.rotation);
+        vfx = Instantiate(effectToSpawnPrimario, firePoint.transform.position, firePoint.rotation) as GameObject;
         vfx.transform.localRotation = this.transform.rotation;
+        vfx.GetComponent<ProjectileMove>().InitializeBullet(photonView.Owner);
     }
     [PunRPC]
     void InstatiateBullet2()
     {
         GameObject vfx;
-        vfx = Instantiate(effectToSpawnSecondario, firePoint.transform.position, firePoint.rotation);
+        vfx = Instantiate(effectToSpawnSecondario, firePoint.transform.position, firePoint.rotation) as GameObject;
         vfx.transform.localRotation = this.transform.rotation;
+        vfx.GetComponent<ProjectileMove>().InitializeBullet(photonView.Owner);
     }
 }

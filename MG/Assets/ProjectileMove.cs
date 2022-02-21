@@ -50,4 +50,8 @@ public class ProjectileMove : MonoBehaviourPun
 
         Destroy(gameObject);
     }
+    public void InitializeBullet(Player owner)
+    {
+        this.Owner = owner;
+    }
 }
