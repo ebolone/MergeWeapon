@@ -14,12 +14,14 @@ public class ProjectileMove : MonoBehaviourPun
     public float maxSpread = 0;
     public float timeToDestroy = 0.5f;
     public float bulletDamage;
+    float tempoAttuale = 0;
 
     public Player Owner { get; private set; }
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(gameObject, timeToDestroy);
+       
+
         Vector3 dir = transform.forward + new Vector3(Random.Range(-maxSpread, maxSpread), 0, Random.Range(-maxSpread, maxSpread));
         this.GetComponent<Rigidbody>().AddForce(dir * speed);
 
@@ -28,6 +30,11 @@ public class ProjectileMove : MonoBehaviourPun
     // Update is called once per frame
     void Update()
     {
+        if (timeToDestroy > tempoAttuale)
+        {
+            tempoAttuale += 0.01f;
+        }
+        else Destroy(gameObject);
   
         
     }
@@ -49,5 +56,9 @@ public class ProjectileMove : MonoBehaviourPun
         }
 
         Destroy(gameObject);
+    }
+    public void InitializeBullet(Player owner)
+    {
+        this.Owner = owner;
     }
 }
