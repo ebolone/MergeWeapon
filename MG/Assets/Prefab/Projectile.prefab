@@ -9717,11 +9717,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1000
   fireRate: 4
-  numeroColpi: 20
+  numeroColpi: 3
   tempoTraColpiConsecutivi: 0.2
   hitPrefab: {fileID: 6060466460071748040, guid: 3df027f846565e84caf82794cc8bc9be, type: 3}
   maxSpread: 0.1
-  timeToDestroy: 0.5
+  timeToDestroy: 1
   bulletDamage: 25
 --- !u!65 &8452922641141891886
 BoxCollider:
@@ -9762,15 +9762,15 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d03ee34896e4c4b4e8458ae3574cb0f5, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 4cacb64db01714f41a07906adf6424a2, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.74
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 152
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500

@@ -2083,9 +2083,9 @@ MonoBehaviour:
   - {fileID: 7115995146901072145, guid: c500aaa170ba71e439aab2474ad54934, type: 3}
   - {fileID: 8106093315786391921, guid: dfd50982dc04ff24b9daa546fc06ae0e, type: 3}
   vfx2:
+  - {fileID: 258752577969464481, guid: 3e3bb310293f54b47b20fc06d3353fd7, type: 3}
   - {fileID: 2928569519841085962, guid: 11632103e7a548e45a401613314782fa, type: 3}
   - {fileID: 8419923045877596740, guid: 3ccb9347f1766cc4687f2dc44c9ce376, type: 3}
-  - {fileID: 7761537806033531109, guid: 0d0361b45db40be459d3c2d7deb1803f, type: 3}
 --- !u!114 &6903058486983729317
 MonoBehaviour:
   m_ObjectHideFlags: 0

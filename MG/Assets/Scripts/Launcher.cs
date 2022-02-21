@@ -94,7 +94,6 @@ public class Launcher : MonoBehaviourPunCallbacks
     {
         PhotonNetwork.JoinRoom(info.Name);
         MenuManager.Instance.OpenMenu("loading");
-        SFXmanagerScript.SFXinstance.Audio.PlayOneShot(SFXmanagerScript.SFXinstance.Click);
   
     }
     public void LeaveRoom()
