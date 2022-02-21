@@ -9783,7 +9783,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Kill 5 enemies to win
+  m_Text: Kill 3 enemies to win
 --- !u!222 &852703231
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13329,7 +13329,7 @@ MonoBehaviour:
   scoreboard: {fileID: 704000195}
   canvas: {fileID: 1194271418}
   isOver: 0
-  killsToWin: 2
+  killsToWin: 3
 --- !u!1001 &1188034871
 PrefabInstance:
   m_ObjectHideFlags: 0
