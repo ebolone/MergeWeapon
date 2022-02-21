@@ -2059,8 +2059,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd08475b23aa548b7b9d28397d430b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance: 7
-  height: 10
+  distance: 5
+  height: 12.5
   centerOffset: {x: 0, y: 0, z: 0}
   followOnStart: 0
   smoothSpeed: 0.125
@@ -3215,7 +3215,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2027585242671963840, guid: cb7b25bde5bdedb4a911f5754439e0ac, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 2.26
+      value: 2.612
       objectReference: {fileID: 0}
     - target: {fileID: 2027585242671963840, guid: cb7b25bde5bdedb4a911f5754439e0ac, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3343,7 +3343,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3154592278341555398, guid: 9b046d45fcd0c8c4baaefe271d4d81bc, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 2.56
+      value: 2.912
       objectReference: {fileID: 0}
     - target: {fileID: 3154592278341555398, guid: 9b046d45fcd0c8c4baaefe271d4d81bc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
