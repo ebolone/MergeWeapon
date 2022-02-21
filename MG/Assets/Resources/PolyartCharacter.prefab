@@ -3030,15 +3030,15 @@ PrefabInstance:
     - target: {fileID: 1801677020349825187, guid: ad5d8464cae239645b488390ad4db8b9, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: eef680655470b7d42a387d75e1f51559, type: 2}
+      objectReference: {fileID: 2100000, guid: 996a437104ec9de4f81f3157da1f6e06, type: 2}
     - target: {fileID: 1801677020349825187, guid: ad5d8464cae239645b488390ad4db8b9, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: eef680655470b7d42a387d75e1f51559, type: 2}
+      objectReference: {fileID: 2100000, guid: 69b835ca9d990fa4f814f98905d28872, type: 2}
     - target: {fileID: 2593680486637242542, guid: ad5d8464cae239645b488390ad4db8b9, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 6553df07aaf2af24ab3b06e02cf5cd73, type: 2}
+      objectReference: {fileID: 2100000, guid: 4e793c80beb685e4ca20dc65f3ceabe3, type: 2}
     - target: {fileID: 2700022995512576145, guid: ad5d8464cae239645b488390ad4db8b9, type: 3}
       propertyPath: player_PV
       value: 
@@ -3048,9 +3048,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5097133003678488793, guid: ad5d8464cae239645b488390ad4db8b9, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5097133003678488793, guid: ad5d8464cae239645b488390ad4db8b9, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: c1102221d17b902448c9c0d974098abe, type: 2}
+      objectReference: {fileID: 2100000, guid: 72b367cefb0c7314a8fd697c388a68b4, type: 2}
+    - target: {fileID: 5097133003678488793, guid: ad5d8464cae239645b488390ad4db8b9, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 99fced4bc2985174cac8512dc765d2bc, type: 2}
     - target: {fileID: 6237839131202025103, guid: ad5d8464cae239645b488390ad4db8b9, type: 3}
       propertyPath: m_Name
       value: base_v2
