@@ -15,6 +15,12 @@ public class EndGame : MonoBehaviour
 
     public int killsToWin;
 
+    public static EndGame EndGameInstance;
+    void Start()
+    {
+        EndGameInstance = this;
+    }
+
     private void LateUpdate()
     {
         if (isOver != true)
