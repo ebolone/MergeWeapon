@@ -4852,14 +4852,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 298e4f610fee5534b9976750c76a55f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 800
-  fireRate: 3
-  numeroColpi: 3
+  speed: 1000
+  fireRate: 2
+  numeroColpi: 1
   tempoTraColpiConsecutivi: 0.1
   hitPrefab: {fileID: 6060466460071748040, guid: 3df027f846565e84caf82794cc8bc9be, type: 3}
   maxSpread: 0.1
-  timeToDestroy: 1
-  bulletDamage: 30
+  timeToDestroy: 1.5
+  bulletDamage: 40
 --- !u!65 &538295522692685358
 BoxCollider:
   m_ObjectHideFlags: 0

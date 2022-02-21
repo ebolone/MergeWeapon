@@ -187,12 +187,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1000
-  fireRate: 0.5
+  fireRate: 0.3
   numeroColpi: 50
   tempoTraColpiConsecutivi: 0
   hitPrefab: {fileID: 6060466460071748040, guid: 3df027f846565e84caf82794cc8bc9be, type: 3}
-  maxSpread: 0.2
-  timeToDestroy: 0.5
+  maxSpread: 0.4
+  timeToDestroy: 0.7
   bulletDamage: 5
 --- !u!54 &5686632600663230282
 Rigidbody:

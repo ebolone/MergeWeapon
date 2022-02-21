@@ -4853,14 +4853,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 298e4f610fee5534b9976750c76a55f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 500
-  fireRate: 1
-  numeroColpi: 2
+  speed: 400
+  fireRate: 0.5
+  numeroColpi: 1
   tempoTraColpiConsecutivi: 0.3
   hitPrefab: {fileID: 6060466460071748040, guid: 3df027f846565e84caf82794cc8bc9be, type: 3}
   maxSpread: 0.05
-  timeToDestroy: 2
-  bulletDamage: 50
+  timeToDestroy: 3
+  bulletDamage: 100
 --- !u!65 &8163373335642505407
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9879,8 +9879,8 @@ TrailRenderer:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.62777776
-        value: 0
+        time: 0.76110774
+        value: 0.014285716
         inSlope: 0
         outSlope: 0
         tangentMode: 0

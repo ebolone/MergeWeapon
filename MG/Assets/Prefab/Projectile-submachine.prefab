@@ -4995,9 +4995,9 @@ MonoBehaviour:
   numeroColpi: 10
   tempoTraColpiConsecutivi: 0.05
   hitPrefab: {fileID: 6060466460071748040, guid: 3df027f846565e84caf82794cc8bc9be, type: 3}
-  maxSpread: 0.15
+  maxSpread: 0.2
   timeToDestroy: 0.8
-  bulletDamage: 20
+  bulletDamage: 8
 --- !u!65 &4789487296277229948
 BoxCollider:
   m_ObjectHideFlags: 0
