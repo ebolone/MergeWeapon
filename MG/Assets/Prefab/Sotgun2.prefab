@@ -190,7 +190,7 @@ MonoBehaviour:
   fireRate: 0.3
   numeroColpi: 50
   tempoTraColpiConsecutivi: 0
-  hitPrefab: {fileID: 6060466460071748040, guid: 3df027f846565e84caf82794cc8bc9be, type: 3}
+  hitPrefab: {fileID: 0}
   maxSpread: 0.4
   timeToDestroy: 0.7
   bulletDamage: 5
